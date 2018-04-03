@@ -1,0 +1,1178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Candidatos">
+          <Key>
+            <PropertyRef Name="IdCandidato" />
+          </Key>
+          <Property Name="IdCandidato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCategoria" Type="int" />
+          <Property Name="IdTitulacion" Type="int" />
+          <Property Name="IdExperiencia" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="100" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="100" />
+          <Property Name="NIFNIE" Type="varchar" MaxLength="10" />
+          <Property Name="Apodo" Type="varchar" MaxLength="30" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CategoriaProfesional">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Chat">
+          <Key>
+            <PropertyRef Name="IdChat" />
+          </Key>
+          <Property Name="IdChat" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="Intervenciones" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ChatEntrevistaCandidato">
+          <Key>
+            <PropertyRef Name="IdChat" />
+            <PropertyRef Name="IdEntrevista" />
+            <PropertyRef Name="IdCandidato" />
+          </Key>
+          <Property Name="IdChat" Type="int" Nullable="false" />
+          <Property Name="IdEntrevista" Type="int" Nullable="false" />
+          <Property Name="IdCandidato" Type="int" Nullable="false" />
+          <Property Name="IdValoracion" Type="int" />
+        </EntityType>
+        <EntityType Name="Dificultad">
+          <Key>
+            <PropertyRef Name="IdDificultad" />
+          </Key>
+          <Property Name="IdDificultad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="EntrevistaCandidato">
+          <Key>
+            <PropertyRef Name="IdEntrevistaCandidato" />
+          </Key>
+          <Property Name="IdEntrevistaCandidato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEntrevista" Type="int" />
+          <Property Name="IdCandidato" Type="int" />
+          <Property Name="ValoracionFinal" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="EntrevistaPregunta">
+          <Key>
+            <PropertyRef Name="IdEntrevistaPregunta" />
+          </Key>
+          <Property Name="IdEntrevistaPregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEntrevista" Type="int" />
+          <Property Name="IdPregunta" Type="int" />
+          <Property Name="IdValoracion" Type="int" />
+        </EntityType>
+        <EntityType Name="Entrevistas">
+          <Key>
+            <PropertyRef Name="IdEntrevista" />
+          </Key>
+          <Property Name="IdEntrevista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="Fecha_Inicio" Type="datetime" />
+          <Property Name="Fecha_Fin" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Experiencia">
+          <Key>
+            <PropertyRef Name="IdExperiencia" />
+          </Key>
+          <Property Name="IdExperiencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Preguntas">
+          <Key>
+            <PropertyRef Name="IdPregunta" />
+          </Key>
+          <Property Name="IdPregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTecnologia" Type="int" />
+          <Property Name="IdDificultad" Type="int" />
+          <Property Name="IdValoracion" Type="int" />
+          <Property Name="IdTipoPregunta" Type="int" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Respuestas">
+          <Key>
+            <PropertyRef Name="IdRespuesta" />
+          </Key>
+          <Property Name="IdRespuesta" Type="int" Nullable="false" />
+          <Property Name="IdPregunta" Type="int" />
+          <Property Name="IdValoracion" Type="int" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="Correcta" Type="bit" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tecnologia">
+          <Key>
+            <PropertyRef Name="IdTecnologia" />
+          </Key>
+          <Property Name="IdTecnologia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TipoDocumento">
+          <Key>
+            <PropertyRef Name="IdTipoDocumento" />
+          </Key>
+          <Property Name="IdTipoDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TipoPregunta">
+          <Key>
+            <PropertyRef Name="IdTipoPregunta" />
+          </Key>
+          <Property Name="IdTipoPregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Titulacion">
+          <Key>
+            <PropertyRef Name="IdTitulacion" />
+          </Key>
+          <Property Name="IdTitulacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="UsuariosAdmin">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRol" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="100" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Password" Type="binary" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="Valoracion">
+          <Key>
+            <PropertyRef Name="IdValoracion" />
+          </Key>
+          <Property Name="IdValoracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Puntuacion" Type="int" />
+        </EntityType>
+        <Association Name="FK_Candidatos_CategoriaProfesional">
+          <End Role="CategoriaProfesional" Type="Self.CategoriaProfesional" Multiplicity="0..1" />
+          <End Role="Candidatos" Type="Self.Candidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaProfesional">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="Candidatos">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidatos_Experiencia">
+          <End Role="Experiencia" Type="Self.Experiencia" Multiplicity="0..1" />
+          <End Role="Candidatos" Type="Self.Candidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Experiencia">
+              <PropertyRef Name="IdExperiencia" />
+            </Principal>
+            <Dependent Role="Candidatos">
+              <PropertyRef Name="IdExperiencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidatos_Titulacion">
+          <End Role="Titulacion" Type="Self.Titulacion" Multiplicity="0..1" />
+          <End Role="Candidatos" Type="Self.Candidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Titulacion">
+              <PropertyRef Name="IdTitulacion" />
+            </Principal>
+            <Dependent Role="Candidatos">
+              <PropertyRef Name="IdTitulacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChatEntrevistaCandidato_Candidatos">
+          <End Role="Candidatos" Type="Self.Candidatos" Multiplicity="1" />
+          <End Role="ChatEntrevistaCandidato" Type="Self.ChatEntrevistaCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidatos">
+              <PropertyRef Name="IdCandidato" />
+            </Principal>
+            <Dependent Role="ChatEntrevistaCandidato">
+              <PropertyRef Name="IdCandidato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChatEntrevistaCandidato_Chat">
+          <End Role="Chat" Type="Self.Chat" Multiplicity="1" />
+          <End Role="ChatEntrevistaCandidato" Type="Self.ChatEntrevistaCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chat">
+              <PropertyRef Name="IdChat" />
+            </Principal>
+            <Dependent Role="ChatEntrevistaCandidato">
+              <PropertyRef Name="IdChat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChatEntrevistaCandidato_Entrevistas">
+          <End Role="Entrevistas" Type="Self.Entrevistas" Multiplicity="1" />
+          <End Role="ChatEntrevistaCandidato" Type="Self.ChatEntrevistaCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrevistas">
+              <PropertyRef Name="IdEntrevista" />
+            </Principal>
+            <Dependent Role="ChatEntrevistaCandidato">
+              <PropertyRef Name="IdEntrevista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrevistaCandidato_Candidatos">
+          <End Role="Candidatos" Type="Self.Candidatos" Multiplicity="0..1" />
+          <End Role="EntrevistaCandidato" Type="Self.EntrevistaCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidatos">
+              <PropertyRef Name="IdCandidato" />
+            </Principal>
+            <Dependent Role="EntrevistaCandidato">
+              <PropertyRef Name="IdCandidato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrevistaCandidato_Entrevistas">
+          <End Role="Entrevistas" Type="Self.Entrevistas" Multiplicity="0..1" />
+          <End Role="EntrevistaCandidato" Type="Self.EntrevistaCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrevistas">
+              <PropertyRef Name="IdEntrevista" />
+            </Principal>
+            <Dependent Role="EntrevistaCandidato">
+              <PropertyRef Name="IdEntrevista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrevistaPregunta_Entrevistas">
+          <End Role="Entrevistas" Type="Self.Entrevistas" Multiplicity="0..1" />
+          <End Role="EntrevistaPregunta" Type="Self.EntrevistaPregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrevistas">
+              <PropertyRef Name="IdEntrevista" />
+            </Principal>
+            <Dependent Role="EntrevistaPregunta">
+              <PropertyRef Name="IdEntrevista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrevistaPregunta_Preguntas">
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="0..1" />
+          <End Role="EntrevistaPregunta" Type="Self.EntrevistaPregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Preguntas">
+              <PropertyRef Name="IdPregunta" />
+            </Principal>
+            <Dependent Role="EntrevistaPregunta">
+              <PropertyRef Name="IdPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrevistaPregunta_Valoracion">
+          <End Role="Valoracion" Type="Self.Valoracion" Multiplicity="0..1" />
+          <End Role="EntrevistaPregunta" Type="Self.EntrevistaPregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Valoracion">
+              <PropertyRef Name="IdValoracion" />
+            </Principal>
+            <Dependent Role="EntrevistaPregunta">
+              <PropertyRef Name="IdValoracion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Preguntas_Dificultad">
+          <End Role="Dificultad" Type="Self.Dificultad" Multiplicity="0..1" />
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dificultad">
+              <PropertyRef Name="IdDificultad" />
+            </Principal>
+            <Dependent Role="Preguntas">
+              <PropertyRef Name="IdDificultad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Preguntas_Tecnologia">
+          <End Role="Tecnologia" Type="Self.Tecnologia" Multiplicity="0..1" />
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnologia">
+              <PropertyRef Name="IdTecnologia" />
+            </Principal>
+            <Dependent Role="Preguntas">
+              <PropertyRef Name="IdTecnologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Preguntas_TipoPregunta">
+          <End Role="TipoPregunta" Type="Self.TipoPregunta" Multiplicity="0..1" />
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPregunta">
+              <PropertyRef Name="IdTipoPregunta" />
+            </Principal>
+            <Dependent Role="Preguntas">
+              <PropertyRef Name="IdTipoPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Respuestas_Preguntas">
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="0..1" />
+          <End Role="Respuestas" Type="Self.Respuestas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Preguntas">
+              <PropertyRef Name="IdPregunta" />
+            </Principal>
+            <Dependent Role="Respuestas">
+              <PropertyRef Name="IdPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Respuestas_Valoracion">
+          <End Role="Valoracion" Type="Self.Valoracion" Multiplicity="0..1" />
+          <End Role="Respuestas" Type="Self.Respuestas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Valoracion">
+              <PropertyRef Name="IdValoracion" />
+            </Principal>
+            <Dependent Role="Respuestas">
+              <PropertyRef Name="IdValoracion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuariosAdmin_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+          <End Role="UsuariosAdmin" Type="Self.UsuariosAdmin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="UsuariosAdmin">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestModelStoreContainer">
+          <EntitySet Name="Candidatos" EntityType="Self.Candidatos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoriaProfesional" EntityType="Self.CategoriaProfesional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chat" EntityType="Self.Chat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChatEntrevistaCandidato" EntityType="Self.ChatEntrevistaCandidato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dificultad" EntityType="Self.Dificultad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntrevistaCandidato" EntityType="Self.EntrevistaCandidato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntrevistaPregunta" EntityType="Self.EntrevistaPregunta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entrevistas" EntityType="Self.Entrevistas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Experiencia" EntityType="Self.Experiencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Preguntas" EntityType="Self.Preguntas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Respuestas" EntityType="Self.Respuestas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tecnologia" EntityType="Self.Tecnologia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPregunta" EntityType="Self.TipoPregunta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Titulacion" EntityType="Self.Titulacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuariosAdmin" EntityType="Self.UsuariosAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Valoracion" EntityType="Self.Valoracion" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Candidatos_CategoriaProfesional" Association="Self.FK_Candidatos_CategoriaProfesional">
+            <End Role="CategoriaProfesional" EntitySet="CategoriaProfesional" />
+            <End Role="Candidatos" EntitySet="Candidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidatos_Experiencia" Association="Self.FK_Candidatos_Experiencia">
+            <End Role="Experiencia" EntitySet="Experiencia" />
+            <End Role="Candidatos" EntitySet="Candidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidatos_Titulacion" Association="Self.FK_Candidatos_Titulacion">
+            <End Role="Titulacion" EntitySet="Titulacion" />
+            <End Role="Candidatos" EntitySet="Candidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChatEntrevistaCandidato_Candidatos" Association="Self.FK_ChatEntrevistaCandidato_Candidatos">
+            <End Role="Candidatos" EntitySet="Candidatos" />
+            <End Role="ChatEntrevistaCandidato" EntitySet="ChatEntrevistaCandidato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChatEntrevistaCandidato_Chat" Association="Self.FK_ChatEntrevistaCandidato_Chat">
+            <End Role="Chat" EntitySet="Chat" />
+            <End Role="ChatEntrevistaCandidato" EntitySet="ChatEntrevistaCandidato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChatEntrevistaCandidato_Entrevistas" Association="Self.FK_ChatEntrevistaCandidato_Entrevistas">
+            <End Role="Entrevistas" EntitySet="Entrevistas" />
+            <End Role="ChatEntrevistaCandidato" EntitySet="ChatEntrevistaCandidato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaCandidato_Candidatos" Association="Self.FK_EntrevistaCandidato_Candidatos">
+            <End Role="Candidatos" EntitySet="Candidatos" />
+            <End Role="EntrevistaCandidato" EntitySet="EntrevistaCandidato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaCandidato_Entrevistas" Association="Self.FK_EntrevistaCandidato_Entrevistas">
+            <End Role="Entrevistas" EntitySet="Entrevistas" />
+            <End Role="EntrevistaCandidato" EntitySet="EntrevistaCandidato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaPregunta_Entrevistas" Association="Self.FK_EntrevistaPregunta_Entrevistas">
+            <End Role="Entrevistas" EntitySet="Entrevistas" />
+            <End Role="EntrevistaPregunta" EntitySet="EntrevistaPregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaPregunta_Preguntas" Association="Self.FK_EntrevistaPregunta_Preguntas">
+            <End Role="Preguntas" EntitySet="Preguntas" />
+            <End Role="EntrevistaPregunta" EntitySet="EntrevistaPregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaPregunta_Valoracion" Association="Self.FK_EntrevistaPregunta_Valoracion">
+            <End Role="Valoracion" EntitySet="Valoracion" />
+            <End Role="EntrevistaPregunta" EntitySet="EntrevistaPregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Preguntas_Dificultad" Association="Self.FK_Preguntas_Dificultad">
+            <End Role="Dificultad" EntitySet="Dificultad" />
+            <End Role="Preguntas" EntitySet="Preguntas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Preguntas_Tecnologia" Association="Self.FK_Preguntas_Tecnologia">
+            <End Role="Tecnologia" EntitySet="Tecnologia" />
+            <End Role="Preguntas" EntitySet="Preguntas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Preguntas_TipoPregunta" Association="Self.FK_Preguntas_TipoPregunta">
+            <End Role="TipoPregunta" EntitySet="TipoPregunta" />
+            <End Role="Preguntas" EntitySet="Preguntas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Respuestas_Preguntas" Association="Self.FK_Respuestas_Preguntas">
+            <End Role="Preguntas" EntitySet="Preguntas" />
+            <End Role="Respuestas" EntitySet="Respuestas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Respuestas_Valoracion" Association="Self.FK_Respuestas_Valoracion">
+            <End Role="Valoracion" EntitySet="Valoracion" />
+            <End Role="Respuestas" EntitySet="Respuestas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuariosAdmin_Rol" Association="Self.FK_UsuariosAdmin_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="UsuariosAdmin" EntitySet="UsuariosAdmin" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dificultad">
+          <Key>
+            <PropertyRef Name="IdDificultad" />
+          </Key>
+          <Property Name="IdDificultad" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Preguntas" Relationship="Self.FK_Preguntas_Dificultad" FromRole="Dificultad" ToRole="Preguntas" />
+        </EntityType>
+        <EntityType Name="Preguntas">
+          <Key>
+            <PropertyRef Name="IdPregunta" />
+          </Key>
+          <Property Name="IdPregunta" Type="Int32" Nullable="false" />
+          <Property Name="IdTecnologia" Type="Int32" />
+          <Property Name="IdDificultad" Type="Int32" />
+          <Property Name="IdValoracion" Type="Int32" />
+          <Property Name="IdTipoPregunta" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Dificultad" Relationship="Self.FK_Preguntas_Dificultad" FromRole="Preguntas" ToRole="Dificultad" />
+          <NavigationProperty Name="Tecnologia" Relationship="Self.FK_Preguntas_Tecnologia" FromRole="Preguntas" ToRole="Tecnologia" />
+          <NavigationProperty Name="TipoPregunta" Relationship="Self.FK_Preguntas_TipoPregunta" FromRole="Preguntas" ToRole="TipoPregunta" />
+          <NavigationProperty Name="Valoracion" Relationship="Self.FK_Preguntas_Valoracion" FromRole="Preguntas" ToRole="Valoracion" />
+          <NavigationProperty Name="Respuestas" Relationship="Self.FK_Respuestas_Preguntas" FromRole="Preguntas" ToRole="Respuestas" />
+          <NavigationProperty Name="EntrevistaPregunta" Relationship="TestModel.FK_EntrevistaPregunta_Preguntas" FromRole="Preguntas" ToRole="EntrevistaPregunta" />
+        </EntityType>
+        <EntityType Name="Respuestas">
+          <Key>
+            <PropertyRef Name="IdRespuesta" />
+          </Key>
+          <Property Name="IdRespuesta" Type="Int32" Nullable="false" />
+          <Property Name="IdPregunta" Type="Int32" />
+          <Property Name="IdValoracion" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Correcta" Type="Boolean" />
+          <NavigationProperty Name="Preguntas" Relationship="Self.FK_Respuestas_Preguntas" FromRole="Respuestas" ToRole="Preguntas" />
+          <NavigationProperty Name="Valoracion" Relationship="Self.FK_Respuestas_Valoracion" FromRole="Respuestas" ToRole="Valoracion" />
+        </EntityType>
+        <EntityType Name="Tecnologia">
+          <Key>
+            <PropertyRef Name="IdTecnologia" />
+          </Key>
+          <Property Name="IdTecnologia" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Preguntas" Relationship="Self.FK_Preguntas_Tecnologia" FromRole="Tecnologia" ToRole="Preguntas" />
+        </EntityType>
+        <EntityType Name="TipoPregunta">
+          <Key>
+            <PropertyRef Name="IdTipoPregunta" />
+          </Key>
+          <Property Name="IdTipoPregunta" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Preguntas" Relationship="Self.FK_Preguntas_TipoPregunta" FromRole="TipoPregunta" ToRole="Preguntas" />
+        </EntityType>
+        <EntityType Name="Valoracion">
+          <Key>
+            <PropertyRef Name="IdValoracion" />
+          </Key>
+          <Property Name="IdValoracion" Type="Int32" Nullable="false" />
+          <Property Name="Puntuacion" Type="Int32" />
+          <NavigationProperty Name="Preguntas" Relationship="Self.FK_Preguntas_Valoracion" FromRole="Valoracion" ToRole="Preguntas" />
+          <NavigationProperty Name="Respuestas" Relationship="Self.FK_Respuestas_Valoracion" FromRole="Valoracion" ToRole="Respuestas" />
+          <NavigationProperty Name="EntrevistaPregunta" Relationship="TestModel.FK_EntrevistaPregunta_Valoracion" FromRole="Valoracion" ToRole="EntrevistaPregunta" />
+        </EntityType>
+        <Association Name="FK_Preguntas_Dificultad">
+          <End Role="Dificultad" Type="Self.Dificultad" Multiplicity="0..1" />
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dificultad">
+              <PropertyRef Name="IdDificultad" />
+            </Principal>
+            <Dependent Role="Preguntas">
+              <PropertyRef Name="IdDificultad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Preguntas_Tecnologia">
+          <End Role="Tecnologia" Type="Self.Tecnologia" Multiplicity="0..1" />
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnologia">
+              <PropertyRef Name="IdTecnologia" />
+            </Principal>
+            <Dependent Role="Preguntas">
+              <PropertyRef Name="IdTecnologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Preguntas_TipoPregunta">
+          <End Role="TipoPregunta" Type="Self.TipoPregunta" Multiplicity="0..1" />
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPregunta">
+              <PropertyRef Name="IdTipoPregunta" />
+            </Principal>
+            <Dependent Role="Preguntas">
+              <PropertyRef Name="IdTipoPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Preguntas_Valoracion">
+          <End Role="Valoracion" Type="Self.Valoracion" Multiplicity="0..1" />
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Valoracion">
+              <PropertyRef Name="IdValoracion" />
+            </Principal>
+            <Dependent Role="Preguntas">
+              <PropertyRef Name="IdValoracion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Respuestas_Preguntas">
+          <End Role="Preguntas" Type="Self.Preguntas" Multiplicity="0..1" />
+          <End Role="Respuestas" Type="Self.Respuestas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Preguntas">
+              <PropertyRef Name="IdPregunta" />
+            </Principal>
+            <Dependent Role="Respuestas">
+              <PropertyRef Name="IdPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Respuestas_Valoracion">
+          <End Role="Valoracion" Type="Self.Valoracion" Multiplicity="0..1" />
+          <End Role="Respuestas" Type="Self.Respuestas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Valoracion">
+              <PropertyRef Name="IdValoracion" />
+            </Principal>
+            <Dependent Role="Respuestas">
+              <PropertyRef Name="IdValoracion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dificultad" EntityType="Self.Dificultad" />
+          <EntitySet Name="Preguntas" EntityType="Self.Preguntas" />
+          <EntitySet Name="Respuestas" EntityType="Self.Respuestas" />
+          <EntitySet Name="Tecnologia" EntityType="Self.Tecnologia" />
+          <EntitySet Name="TipoPregunta" EntityType="Self.TipoPregunta" />
+          <EntitySet Name="Valoracion" EntityType="Self.Valoracion" />
+          <AssociationSet Name="FK_Preguntas_Dificultad" Association="Self.FK_Preguntas_Dificultad">
+            <End Role="Dificultad" EntitySet="Dificultad" />
+            <End Role="Preguntas" EntitySet="Preguntas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Preguntas_Tecnologia" Association="Self.FK_Preguntas_Tecnologia">
+            <End Role="Tecnologia" EntitySet="Tecnologia" />
+            <End Role="Preguntas" EntitySet="Preguntas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Preguntas_TipoPregunta" Association="Self.FK_Preguntas_TipoPregunta">
+            <End Role="TipoPregunta" EntitySet="TipoPregunta" />
+            <End Role="Preguntas" EntitySet="Preguntas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Preguntas_Valoracion" Association="Self.FK_Preguntas_Valoracion">
+            <End Role="Valoracion" EntitySet="Valoracion" />
+            <End Role="Preguntas" EntitySet="Preguntas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Respuestas_Preguntas" Association="Self.FK_Respuestas_Preguntas">
+            <End Role="Preguntas" EntitySet="Preguntas" />
+            <End Role="Respuestas" EntitySet="Respuestas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Respuestas_Valoracion" Association="Self.FK_Respuestas_Valoracion">
+            <End Role="Valoracion" EntitySet="Valoracion" />
+            <End Role="Respuestas" EntitySet="Respuestas" />
+          </AssociationSet>
+          <EntitySet Name="Candidatos" EntityType="TestModel.Candidatos" />
+          <EntitySet Name="CategoriaProfesional" EntityType="TestModel.CategoriaProfesional" />
+          <EntitySet Name="Chat" EntityType="TestModel.Chat" />
+          <EntitySet Name="ChatEntrevistaCandidato" EntityType="TestModel.ChatEntrevistaCandidato" />
+          <EntitySet Name="EntrevistaCandidato" EntityType="TestModel.EntrevistaCandidato" />
+          <EntitySet Name="EntrevistaPregunta" EntityType="TestModel.EntrevistaPregunta" />
+          <EntitySet Name="Entrevistas" EntityType="TestModel.Entrevistas" />
+          <EntitySet Name="Experiencia" EntityType="TestModel.Experiencia" />
+          <EntitySet Name="Rol" EntityType="TestModel.Rol" />
+          <EntitySet Name="TipoDocumento" EntityType="TestModel.TipoDocumento" />
+          <EntitySet Name="Titulacion" EntityType="TestModel.Titulacion" />
+          <EntitySet Name="UsuariosAdmin" EntityType="TestModel.UsuariosAdmin" />
+          <AssociationSet Name="FK_Candidatos_CategoriaProfesional" Association="TestModel.FK_Candidatos_CategoriaProfesional">
+            <End Role="CategoriaProfesional" EntitySet="CategoriaProfesional" />
+            <End Role="Candidatos" EntitySet="Candidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidatos_Experiencia" Association="TestModel.FK_Candidatos_Experiencia">
+            <End Role="Experiencia" EntitySet="Experiencia" />
+            <End Role="Candidatos" EntitySet="Candidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidatos_Titulacion" Association="TestModel.FK_Candidatos_Titulacion">
+            <End Role="Titulacion" EntitySet="Titulacion" />
+            <End Role="Candidatos" EntitySet="Candidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChatEntrevistaCandidato_Candidatos" Association="TestModel.FK_ChatEntrevistaCandidato_Candidatos">
+            <End Role="Candidatos" EntitySet="Candidatos" />
+            <End Role="ChatEntrevistaCandidato" EntitySet="ChatEntrevistaCandidato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaCandidato_Candidatos" Association="TestModel.FK_EntrevistaCandidato_Candidatos">
+            <End Role="Candidatos" EntitySet="Candidatos" />
+            <End Role="EntrevistaCandidato" EntitySet="EntrevistaCandidato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChatEntrevistaCandidato_Chat" Association="TestModel.FK_ChatEntrevistaCandidato_Chat">
+            <End Role="Chat" EntitySet="Chat" />
+            <End Role="ChatEntrevistaCandidato" EntitySet="ChatEntrevistaCandidato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChatEntrevistaCandidato_Entrevistas" Association="TestModel.FK_ChatEntrevistaCandidato_Entrevistas">
+            <End Role="Entrevistas" EntitySet="Entrevistas" />
+            <End Role="ChatEntrevistaCandidato" EntitySet="ChatEntrevistaCandidato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaCandidato_Entrevistas" Association="TestModel.FK_EntrevistaCandidato_Entrevistas">
+            <End Role="Entrevistas" EntitySet="Entrevistas" />
+            <End Role="EntrevistaCandidato" EntitySet="EntrevistaCandidato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaPregunta_Entrevistas" Association="TestModel.FK_EntrevistaPregunta_Entrevistas">
+            <End Role="Entrevistas" EntitySet="Entrevistas" />
+            <End Role="EntrevistaPregunta" EntitySet="EntrevistaPregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaPregunta_Preguntas" Association="TestModel.FK_EntrevistaPregunta_Preguntas">
+            <End Role="Preguntas" EntitySet="Preguntas" />
+            <End Role="EntrevistaPregunta" EntitySet="EntrevistaPregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaPregunta_Valoracion" Association="TestModel.FK_EntrevistaPregunta_Valoracion">
+            <End Role="Valoracion" EntitySet="Valoracion" />
+            <End Role="EntrevistaPregunta" EntitySet="EntrevistaPregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuariosAdmin_Rol" Association="TestModel.FK_UsuariosAdmin_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="UsuariosAdmin" EntitySet="UsuariosAdmin" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Candidatos">
+          <Key>
+            <PropertyRef Name="IdCandidato" />
+          </Key>
+          <Property Name="IdCandidato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCategoria" Type="Int32" />
+          <Property Name="IdTitulacion" Type="Int32" />
+          <Property Name="IdExperiencia" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NIFNIE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Apodo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CategoriaProfesional" Relationship="TestModel.FK_Candidatos_CategoriaProfesional" FromRole="Candidatos" ToRole="CategoriaProfesional" />
+          <NavigationProperty Name="Experiencia" Relationship="TestModel.FK_Candidatos_Experiencia" FromRole="Candidatos" ToRole="Experiencia" />
+          <NavigationProperty Name="Titulacion" Relationship="TestModel.FK_Candidatos_Titulacion" FromRole="Candidatos" ToRole="Titulacion" />
+          <NavigationProperty Name="ChatEntrevistaCandidato" Relationship="TestModel.FK_ChatEntrevistaCandidato_Candidatos" FromRole="Candidatos" ToRole="ChatEntrevistaCandidato" />
+          <NavigationProperty Name="EntrevistaCandidato" Relationship="TestModel.FK_EntrevistaCandidato_Candidatos" FromRole="Candidatos" ToRole="EntrevistaCandidato" />
+        </EntityType>
+        <EntityType Name="CategoriaProfesional">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Candidatos" Relationship="TestModel.FK_Candidatos_CategoriaProfesional" FromRole="CategoriaProfesional" ToRole="Candidatos" />
+        </EntityType>
+        <EntityType Name="Chat">
+          <Key>
+            <PropertyRef Name="IdChat" />
+          </Key>
+          <Property Name="IdChat" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Intervenciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ChatEntrevistaCandidato" Relationship="TestModel.FK_ChatEntrevistaCandidato_Chat" FromRole="Chat" ToRole="ChatEntrevistaCandidato" />
+        </EntityType>
+        <EntityType Name="ChatEntrevistaCandidato">
+          <Key>
+            <PropertyRef Name="IdChat" />
+            <PropertyRef Name="IdEntrevista" />
+            <PropertyRef Name="IdCandidato" />
+          </Key>
+          <Property Name="IdChat" Type="Int32" Nullable="false" />
+          <Property Name="IdEntrevista" Type="Int32" Nullable="false" />
+          <Property Name="IdCandidato" Type="Int32" Nullable="false" />
+          <Property Name="IdValoracion" Type="Int32" />
+          <NavigationProperty Name="Candidatos" Relationship="TestModel.FK_ChatEntrevistaCandidato_Candidatos" FromRole="ChatEntrevistaCandidato" ToRole="Candidatos" />
+          <NavigationProperty Name="Chat" Relationship="TestModel.FK_ChatEntrevistaCandidato_Chat" FromRole="ChatEntrevistaCandidato" ToRole="Chat" />
+          <NavigationProperty Name="Entrevistas" Relationship="TestModel.FK_ChatEntrevistaCandidato_Entrevistas" FromRole="ChatEntrevistaCandidato" ToRole="Entrevistas" />
+        </EntityType>
+        <EntityType Name="EntrevistaCandidato">
+          <Key>
+            <PropertyRef Name="IdEntrevistaCandidato" />
+          </Key>
+          <Property Name="IdEntrevistaCandidato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEntrevista" Type="Int32" />
+          <Property Name="IdCandidato" Type="Int32" />
+          <Property Name="ValoracionFinal" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Candidatos" Relationship="TestModel.FK_EntrevistaCandidato_Candidatos" FromRole="EntrevistaCandidato" ToRole="Candidatos" />
+          <NavigationProperty Name="Entrevistas" Relationship="TestModel.FK_EntrevistaCandidato_Entrevistas" FromRole="EntrevistaCandidato" ToRole="Entrevistas" />
+        </EntityType>
+        <EntityType Name="EntrevistaPregunta">
+          <Key>
+            <PropertyRef Name="IdEntrevistaPregunta" />
+          </Key>
+          <Property Name="IdEntrevistaPregunta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEntrevista" Type="Int32" />
+          <Property Name="IdPregunta" Type="Int32" />
+          <Property Name="IdValoracion" Type="Int32" />
+          <NavigationProperty Name="Entrevistas" Relationship="TestModel.FK_EntrevistaPregunta_Entrevistas" FromRole="EntrevistaPregunta" ToRole="Entrevistas" />
+          <NavigationProperty Name="Preguntas" Relationship="TestModel.FK_EntrevistaPregunta_Preguntas" FromRole="EntrevistaPregunta" ToRole="Preguntas" />
+          <NavigationProperty Name="Valoracion" Relationship="TestModel.FK_EntrevistaPregunta_Valoracion" FromRole="EntrevistaPregunta" ToRole="Valoracion" />
+        </EntityType>
+        <EntityType Name="Entrevistas">
+          <Key>
+            <PropertyRef Name="IdEntrevista" />
+          </Key>
+          <Property Name="IdEntrevista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Inicio" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Fin" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ChatEntrevistaCandidato" Relationship="TestModel.FK_ChatEntrevistaCandidato_Entrevistas" FromRole="Entrevistas" ToRole="ChatEntrevistaCandidato" />
+          <NavigationProperty Name="EntrevistaCandidato" Relationship="TestModel.FK_EntrevistaCandidato_Entrevistas" FromRole="Entrevistas" ToRole="EntrevistaCandidato" />
+          <NavigationProperty Name="EntrevistaPregunta" Relationship="TestModel.FK_EntrevistaPregunta_Entrevistas" FromRole="Entrevistas" ToRole="EntrevistaPregunta" />
+        </EntityType>
+        <EntityType Name="Experiencia">
+          <Key>
+            <PropertyRef Name="IdExperiencia" />
+          </Key>
+          <Property Name="IdExperiencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Candidatos" Relationship="TestModel.FK_Candidatos_Experiencia" FromRole="Experiencia" ToRole="Candidatos" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UsuariosAdmin" Relationship="TestModel.FK_UsuariosAdmin_Rol" FromRole="Rol" ToRole="UsuariosAdmin" />
+        </EntityType>
+        <EntityType Name="TipoDocumento">
+          <Key>
+            <PropertyRef Name="IdTipoDocumento" />
+          </Key>
+          <Property Name="IdTipoDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Titulacion">
+          <Key>
+            <PropertyRef Name="IdTitulacion" />
+          </Key>
+          <Property Name="IdTitulacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Candidatos" Relationship="TestModel.FK_Candidatos_Titulacion" FromRole="Titulacion" ToRole="Candidatos" />
+        </EntityType>
+        <EntityType Name="UsuariosAdmin">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRol" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="Binary" MaxLength="64" FixedLength="true" />
+          <NavigationProperty Name="Rol" Relationship="TestModel.FK_UsuariosAdmin_Rol" FromRole="UsuariosAdmin" ToRole="Rol" />
+        </EntityType>
+        <Association Name="FK_Candidatos_CategoriaProfesional">
+          <End Type="TestModel.CategoriaProfesional" Role="CategoriaProfesional" Multiplicity="0..1" />
+          <End Type="TestModel.Candidatos" Role="Candidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaProfesional">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="Candidatos">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidatos_Experiencia">
+          <End Type="TestModel.Experiencia" Role="Experiencia" Multiplicity="0..1" />
+          <End Type="TestModel.Candidatos" Role="Candidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Experiencia">
+              <PropertyRef Name="IdExperiencia" />
+            </Principal>
+            <Dependent Role="Candidatos">
+              <PropertyRef Name="IdExperiencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidatos_Titulacion">
+          <End Type="TestModel.Titulacion" Role="Titulacion" Multiplicity="0..1" />
+          <End Type="TestModel.Candidatos" Role="Candidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Titulacion">
+              <PropertyRef Name="IdTitulacion" />
+            </Principal>
+            <Dependent Role="Candidatos">
+              <PropertyRef Name="IdTitulacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChatEntrevistaCandidato_Candidatos">
+          <End Type="TestModel.Candidatos" Role="Candidatos" Multiplicity="1" />
+          <End Type="TestModel.ChatEntrevistaCandidato" Role="ChatEntrevistaCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidatos">
+              <PropertyRef Name="IdCandidato" />
+            </Principal>
+            <Dependent Role="ChatEntrevistaCandidato">
+              <PropertyRef Name="IdCandidato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrevistaCandidato_Candidatos">
+          <End Type="TestModel.Candidatos" Role="Candidatos" Multiplicity="0..1" />
+          <End Type="TestModel.EntrevistaCandidato" Role="EntrevistaCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidatos">
+              <PropertyRef Name="IdCandidato" />
+            </Principal>
+            <Dependent Role="EntrevistaCandidato">
+              <PropertyRef Name="IdCandidato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChatEntrevistaCandidato_Chat">
+          <End Type="TestModel.Chat" Role="Chat" Multiplicity="1" />
+          <End Type="TestModel.ChatEntrevistaCandidato" Role="ChatEntrevistaCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chat">
+              <PropertyRef Name="IdChat" />
+            </Principal>
+            <Dependent Role="ChatEntrevistaCandidato">
+              <PropertyRef Name="IdChat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChatEntrevistaCandidato_Entrevistas">
+          <End Type="TestModel.Entrevistas" Role="Entrevistas" Multiplicity="1" />
+          <End Type="TestModel.ChatEntrevistaCandidato" Role="ChatEntrevistaCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrevistas">
+              <PropertyRef Name="IdEntrevista" />
+            </Principal>
+            <Dependent Role="ChatEntrevistaCandidato">
+              <PropertyRef Name="IdEntrevista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrevistaCandidato_Entrevistas">
+          <End Type="TestModel.Entrevistas" Role="Entrevistas" Multiplicity="0..1" />
+          <End Type="TestModel.EntrevistaCandidato" Role="EntrevistaCandidato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrevistas">
+              <PropertyRef Name="IdEntrevista" />
+            </Principal>
+            <Dependent Role="EntrevistaCandidato">
+              <PropertyRef Name="IdEntrevista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrevistaPregunta_Entrevistas">
+          <End Type="TestModel.Entrevistas" Role="Entrevistas" Multiplicity="0..1" />
+          <End Type="TestModel.EntrevistaPregunta" Role="EntrevistaPregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrevistas">
+              <PropertyRef Name="IdEntrevista" />
+            </Principal>
+            <Dependent Role="EntrevistaPregunta">
+              <PropertyRef Name="IdEntrevista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrevistaPregunta_Preguntas">
+          <End Type="TestModel.Preguntas" Role="Preguntas" Multiplicity="0..1" />
+          <End Type="TestModel.EntrevistaPregunta" Role="EntrevistaPregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Preguntas">
+              <PropertyRef Name="IdPregunta" />
+            </Principal>
+            <Dependent Role="EntrevistaPregunta">
+              <PropertyRef Name="IdPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntrevistaPregunta_Valoracion">
+          <End Type="TestModel.Valoracion" Role="Valoracion" Multiplicity="0..1" />
+          <End Type="TestModel.EntrevistaPregunta" Role="EntrevistaPregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Valoracion">
+              <PropertyRef Name="IdValoracion" />
+            </Principal>
+            <Dependent Role="EntrevistaPregunta">
+              <PropertyRef Name="IdValoracion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuariosAdmin_Rol">
+          <End Type="TestModel.Rol" Role="Rol" Multiplicity="0..1" />
+          <End Type="TestModel.UsuariosAdmin" Role="UsuariosAdmin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="UsuariosAdmin">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TestModelStoreContainer" CdmEntityContainer="TestEntities">
+          <EntitySetMapping Name="Dificultad">
+            <EntityTypeMapping TypeName="TestModel.Dificultad">
+              <MappingFragment StoreEntitySet="Dificultad">
+                <ScalarProperty Name="IdDificultad" ColumnName="IdDificultad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Preguntas">
+            <EntityTypeMapping TypeName="TestModel.Preguntas">
+              <MappingFragment StoreEntitySet="Preguntas">
+                <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
+                <ScalarProperty Name="IdTecnologia" ColumnName="IdTecnologia" />
+                <ScalarProperty Name="IdDificultad" ColumnName="IdDificultad" />
+                <ScalarProperty Name="IdValoracion" ColumnName="IdValoracion" />
+                <ScalarProperty Name="IdTipoPregunta" ColumnName="IdTipoPregunta" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Respuestas">
+            <EntityTypeMapping TypeName="TestModel.Respuestas">
+              <MappingFragment StoreEntitySet="Respuestas">
+                <ScalarProperty Name="IdRespuesta" ColumnName="IdRespuesta" />
+                <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
+                <ScalarProperty Name="IdValoracion" ColumnName="IdValoracion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Correcta" ColumnName="Correcta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tecnologia">
+            <EntityTypeMapping TypeName="TestModel.Tecnologia">
+              <MappingFragment StoreEntitySet="Tecnologia">
+                <ScalarProperty Name="IdTecnologia" ColumnName="IdTecnologia" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPregunta">
+            <EntityTypeMapping TypeName="TestModel.TipoPregunta">
+              <MappingFragment StoreEntitySet="TipoPregunta">
+                <ScalarProperty Name="IdTipoPregunta" ColumnName="IdTipoPregunta" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Valoracion">
+            <EntityTypeMapping TypeName="TestModel.Valoracion">
+              <MappingFragment StoreEntitySet="Valoracion">
+                <ScalarProperty Name="IdValoracion" ColumnName="IdValoracion" />
+                <ScalarProperty Name="Puntuacion" ColumnName="Puntuacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Candidatos">
+            <EntityTypeMapping TypeName="TestModel.Candidatos">
+              <MappingFragment StoreEntitySet="Candidatos">
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Apodo" ColumnName="Apodo" />
+                <ScalarProperty Name="NIFNIE" ColumnName="NIFNIE" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdExperiencia" ColumnName="IdExperiencia" />
+                <ScalarProperty Name="IdTitulacion" ColumnName="IdTitulacion" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="IdCandidato" ColumnName="IdCandidato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoriaProfesional">
+            <EntityTypeMapping TypeName="TestModel.CategoriaProfesional">
+              <MappingFragment StoreEntitySet="CategoriaProfesional">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chat">
+            <EntityTypeMapping TypeName="TestModel.Chat">
+              <MappingFragment StoreEntitySet="Chat">
+                <ScalarProperty Name="Intervenciones" ColumnName="Intervenciones" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdChat" ColumnName="IdChat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChatEntrevistaCandidato">
+            <EntityTypeMapping TypeName="TestModel.ChatEntrevistaCandidato">
+              <MappingFragment StoreEntitySet="ChatEntrevistaCandidato">
+                <ScalarProperty Name="IdValoracion" ColumnName="IdValoracion" />
+                <ScalarProperty Name="IdCandidato" ColumnName="IdCandidato" />
+                <ScalarProperty Name="IdEntrevista" ColumnName="IdEntrevista" />
+                <ScalarProperty Name="IdChat" ColumnName="IdChat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntrevistaCandidato">
+            <EntityTypeMapping TypeName="TestModel.EntrevistaCandidato">
+              <MappingFragment StoreEntitySet="EntrevistaCandidato">
+                <ScalarProperty Name="ValoracionFinal" ColumnName="ValoracionFinal" />
+                <ScalarProperty Name="IdCandidato" ColumnName="IdCandidato" />
+                <ScalarProperty Name="IdEntrevista" ColumnName="IdEntrevista" />
+                <ScalarProperty Name="IdEntrevistaCandidato" ColumnName="IdEntrevistaCandidato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntrevistaPregunta">
+            <EntityTypeMapping TypeName="TestModel.EntrevistaPregunta">
+              <MappingFragment StoreEntitySet="EntrevistaPregunta">
+                <ScalarProperty Name="IdValoracion" ColumnName="IdValoracion" />
+                <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
+                <ScalarProperty Name="IdEntrevista" ColumnName="IdEntrevista" />
+                <ScalarProperty Name="IdEntrevistaPregunta" ColumnName="IdEntrevistaPregunta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entrevistas">
+            <EntityTypeMapping TypeName="TestModel.Entrevistas">
+              <MappingFragment StoreEntitySet="Entrevistas">
+                <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+                <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdEntrevista" ColumnName="IdEntrevista" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Experiencia">
+            <EntityTypeMapping TypeName="TestModel.Experiencia">
+              <MappingFragment StoreEntitySet="Experiencia">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdExperiencia" ColumnName="IdExperiencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="TestModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDocumento">
+            <EntityTypeMapping TypeName="TestModel.TipoDocumento">
+              <MappingFragment StoreEntitySet="TipoDocumento">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Titulacion">
+            <EntityTypeMapping TypeName="TestModel.Titulacion">
+              <MappingFragment StoreEntitySet="Titulacion">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdTitulacion" ColumnName="IdTitulacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuariosAdmin">
+            <EntityTypeMapping TypeName="TestModel.UsuariosAdmin">
+              <MappingFragment StoreEntitySet="UsuariosAdmin">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

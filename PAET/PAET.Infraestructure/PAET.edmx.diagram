@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="64212cd448d842f2a3de3355e27e33c8" Name="Diagram1">
+        <EntityTypeShape EntityType="TestModel.Dificultad" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestModel.Preguntas" Width="1.5" PointX="6.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestModel.Respuestas" Width="1.5" PointX="9.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestModel.Tecnologia" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestModel.TipoPregunta" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestModel.Valoracion" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="TestModel.FK_Preguntas_Dificultad" ManuallyRouted="false" />
+        <AssociationConnector Association="TestModel.FK_Preguntas_Tecnologia" ManuallyRouted="false" />
+        <AssociationConnector Association="TestModel.FK_Preguntas_TipoPregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="TestModel.FK_Preguntas_Valoracion" ManuallyRouted="false" />
+        <AssociationConnector Association="TestModel.FK_Respuestas_Preguntas" ManuallyRouted="false" />
+        <AssociationConnector Association="TestModel.FK_Respuestas_Valoracion" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

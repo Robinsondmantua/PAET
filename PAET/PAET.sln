@@ -1,0 +1,114 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAET", "PAET\PAET.csproj", "{8F4D543F-8DB2-4AA5-A30F-E5E0560FA222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAET.Infraestructure", "PAET.Infraestructure\PAET.Infraestructure.csproj", "{C9A8E060-FB5E-4964-85BE-75E274CD6562}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMVS.Comun.ServiciosBasicos", "..\..\..\Proyectos\Desarrollo\Comunes\EMVS.Comun.ServiciosBasicos\EMVS.Comun.ServiciosBasicos\EMVS.Comun.ServiciosBasicos.csproj", "{3B3B9C71-A4F8-4A15-BAC6-78BCC382A001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMVS.Comun.Log", "..\..\..\Proyectos\Desarrollo\Comunes\EMVS.Comun.Log.C#\Main\EMVS.Comun.Log.csproj", "{2663E2A5-6B9F-44F9-8312-F88F35564CD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMVS.Comun.Negocio", "..\..\..\Proyectos\Desarrollo\Comunes\EMVS.Comun.Negocio\MigracionC#\EMVS.Comun.Negocio.csproj", "{8F3DBC8D-DE94-4E78-ABDC-4FE22BC87EB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMVS.Comun.NegocioMVC", "..\..\..\Proyectos\Desarrollo\Comunes\EMVS.Comun.NegocioMVC\Main\EMVS.Comun.NegocioMVC\EMVS.Comun.NegocioMVC.csproj", "{9994239A-9311-4330-BBBA-3455AF168DE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comunes", "Comunes", "{63AA272D-506C-4AC1-A009-AF772D6C3BEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMVS.Comun.DominioBase", "..\..\..\Proyectos\Desarrollo\DTOs\EMVS.Comun.DominioBase\EMVS.Comun.DominioBase.csproj", "{508F022D-3E95-40EA-A685-A5691D53E18E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAET.Services", "PAET.Services\PAET.Services.csproj", "{F2D6A2A9-0A7F-4F10-84AF-BFD8C9EFBDED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAET.Test", "PAET.Test\PAET.Test.csproj", "{2DF0E517-7D21-4C44-9240-B418FBCEC92C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F4D543F-8DB2-4AA5-A30F-E5E0560FA222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F4D543F-8DB2-4AA5-A30F-E5E0560FA222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F4D543F-8DB2-4AA5-A30F-E5E0560FA222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F4D543F-8DB2-4AA5-A30F-E5E0560FA222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A8E060-FB5E-4964-85BE-75E274CD6562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A8E060-FB5E-4964-85BE-75E274CD6562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A8E060-FB5E-4964-85BE-75E274CD6562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A8E060-FB5E-4964-85BE-75E274CD6562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B3B9C71-A4F8-4A15-BAC6-78BCC382A001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B3B9C71-A4F8-4A15-BAC6-78BCC382A001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B3B9C71-A4F8-4A15-BAC6-78BCC382A001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B3B9C71-A4F8-4A15-BAC6-78BCC382A001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2663E2A5-6B9F-44F9-8312-F88F35564CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2663E2A5-6B9F-44F9-8312-F88F35564CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2663E2A5-6B9F-44F9-8312-F88F35564CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2663E2A5-6B9F-44F9-8312-F88F35564CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F3DBC8D-DE94-4E78-ABDC-4FE22BC87EB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F3DBC8D-DE94-4E78-ABDC-4FE22BC87EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F3DBC8D-DE94-4E78-ABDC-4FE22BC87EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F3DBC8D-DE94-4E78-ABDC-4FE22BC87EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9994239A-9311-4330-BBBA-3455AF168DE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9994239A-9311-4330-BBBA-3455AF168DE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9994239A-9311-4330-BBBA-3455AF168DE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9994239A-9311-4330-BBBA-3455AF168DE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{508F022D-3E95-40EA-A685-A5691D53E18E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508F022D-3E95-40EA-A685-A5691D53E18E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508F022D-3E95-40EA-A685-A5691D53E18E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508F022D-3E95-40EA-A685-A5691D53E18E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D6A2A9-0A7F-4F10-84AF-BFD8C9EFBDED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D6A2A9-0A7F-4F10-84AF-BFD8C9EFBDED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D6A2A9-0A7F-4F10-84AF-BFD8C9EFBDED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D6A2A9-0A7F-4F10-84AF-BFD8C9EFBDED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DF0E517-7D21-4C44-9240-B418FBCEC92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF0E517-7D21-4C44-9240-B418FBCEC92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF0E517-7D21-4C44-9240-B418FBCEC92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF0E517-7D21-4C44-9240-B418FBCEC92C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B3B9C71-A4F8-4A15-BAC6-78BCC382A001} = {63AA272D-506C-4AC1-A009-AF772D6C3BEB}
+		{2663E2A5-6B9F-44F9-8312-F88F35564CD7} = {63AA272D-506C-4AC1-A009-AF772D6C3BEB}
+		{8F3DBC8D-DE94-4E78-ABDC-4FE22BC87EB7} = {63AA272D-506C-4AC1-A009-AF772D6C3BEB}
+		{9994239A-9311-4330-BBBA-3455AF168DE3} = {63AA272D-506C-4AC1-A009-AF772D6C3BEB}
+		{508F022D-3E95-40EA-A685-A5691D53E18E} = {63AA272D-506C-4AC1-A009-AF772D6C3BEB}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs2013:8080/tfs/defaultcollection
+		SccProjectUniqueName0 = ..\\..\\..\\Proyectos\\Desarrollo\\Comunes\\EMVS.Comun.ServiciosBasicos\\EMVS.Comun.ServiciosBasicos\\EMVS.Comun.ServiciosBasicos.csproj
+		SccProjectTopLevelParentUniqueName0 = PAET.sln
+		SccProjectName0 = $/Desarrollo/Comunes/EMVS.Comun.ServiciosBasicos/EMVS.Comun.ServiciosBasicos
+		SccAuxPath0 = http://tfs2013:8080/tfs/defaultcollection
+		SccLocalPath0 = ..\\..\\..\\Proyectos\\Desarrollo\\Comunes\\EMVS.Comun.ServiciosBasicos\\EMVS.Comun.ServiciosBasicos
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = ..\\..\\..\\Proyectos\\Desarrollo\\Comunes\\EMVS.Comun.Log.C#\\Main\\EMVS.Comun.Log.csproj
+		SccProjectTopLevelParentUniqueName1 = PAET.sln
+		SccProjectName1 = $/Desarrollo/Comunes/EMVS.Comun.Log.C#/Main
+		SccAuxPath1 = http://tfs2013:8080/tfs/defaultcollection
+		SccLocalPath1 = ..\\..\\..\\Proyectos\\Desarrollo\\Comunes\\EMVS.Comun.Log.C#\\Main
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = ..\\..\\..\\Proyectos\\Desarrollo\\Comunes\\EMVS.Comun.Negocio\\MigracionC#\\EMVS.Comun.Negocio.csproj
+		SccProjectTopLevelParentUniqueName2 = PAET.sln
+		SccProjectName2 = $/Desarrollo/Comunes/EMVS.Comun.Negocio/MigracionC#
+		SccAuxPath2 = http://tfs2013:8080/tfs/defaultcollection
+		SccLocalPath2 = ..\\..\\..\\Proyectos\\Desarrollo\\Comunes\\EMVS.Comun.Negocio\\MigracionC#
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName3 = ..\\..\\..\\Proyectos\\Desarrollo\\Comunes\\EMVS.Comun.NegocioMVC\\Main\\EMVS.Comun.NegocioMVC\\EMVS.Comun.NegocioMVC.csproj
+		SccProjectTopLevelParentUniqueName3 = PAET.sln
+		SccProjectName3 = $/Desarrollo/Comunes/EMVS.Comun.NegocioMVC/Main/EMVS.Comun.NegocioMVC
+		SccAuxPath3 = http://tfs2013:8080/tfs/defaultcollection
+		SccLocalPath3 = ..\\..\\..\\Proyectos\\Desarrollo\\Comunes\\EMVS.Comun.NegocioMVC\\Main\\EMVS.Comun.NegocioMVC
+		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName4 = ..\\..\\..\\Proyectos\\Desarrollo\\DTOs\\EMVS.Comun.DominioBase\\EMVS.Comun.DominioBase.csproj
+		SccProjectTopLevelParentUniqueName4 = PAET.sln
+		SccProjectName4 = $/Desarrollo/DTOs/EMVS.Comun.DominioBase
+		SccAuxPath4 = http://tfs2013:8080/tfs/defaultcollection
+		SccLocalPath4 = ..\\..\\..\\Proyectos\\Desarrollo\\DTOs\\EMVS.Comun.DominioBase
+		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal
