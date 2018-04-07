@@ -1,0 +1,34 @@
+﻿    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <div class="account-wall">
+                @using (Html.BeginForm("ComprobarAcceso", "Login", FormMethod.Post, new { @class = "form-signin", enctype = "multipart / form - data" }))
+                {
+                    @Html.ValidationSummary(true)
+
+                    <img class="profile-img" src="~/Content/images/Logo/logo2.png" alt="" />
+                    <input type="text" class="form-control" placeholder="Usuario" name="txtusuario" required autofocus>
+                    <input type="password" class="form-control" placeholder="Contraseña" name="txtpwd" required>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        Acceder a PAET
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/css")
+    <link href="@Url.Content("~/Content/login.css")" rel="stylesheet" type="text/css" />
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
