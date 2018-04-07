@@ -22,7 +22,7 @@ namespace PAET.Controllers
         [HttpPost]
         public ActionResult ComprobarAcceso(FormCollection form)
         {
-            return View();
+            return RedirectToAction("Menu", "Menu");
         }
     }
 }

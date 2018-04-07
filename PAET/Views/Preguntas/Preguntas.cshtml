@@ -1,0 +1,97 @@
+﻿@using PAET.DominioBase.Entidades_Dominio;
+@using PAET.Enumerados;
+@model List<PreguntasDto>
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bs-docs-section">
+                <h1 class="page-header">Prueba de evaluación técnica</h1>
+                <label class="derecha">Tiempo restante: 30:00</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="rootwizard">
+                <ul>
+                    @foreach (PreguntasDto pregunta in Model)
+                    {
+                        var tab = "#tab" + pregunta.IdPregunta;
+                        <li><a href="@tab" data-toggle="tab">@pregunta.IdPregunta</a></li>
+                    }
+                </ul>
+                <div class="tab-content">
+                    @{ int indexpregunta = 1; }
+                    @foreach (PreguntasDto pregunta in Model)
+                    {
+                        var tab = "tab" + pregunta.IdPregunta;
+
+                        <div class="tab-pane" id="@tab">
+                            <div class="control-group">
+                                <div class="bs-callout bs-callout-info">
+                                    <h4>PREGUNTA Nº @indexpregunta : <label>@pregunta.Descripcion</label></h4>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                @switch (pregunta.IdTipoPregunta)
+                                {
+                                    case (int)EnumeradosPAET.TipoPregunta.Opciones:
+                                        int indexrespuestas = 1;
+
+                                        foreach (RespuestasDto respuesta in pregunta.Respuestas)
+                                        {
+                                            var opt = "optionsRadios1" + indexrespuestas;
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="@opt" value="@respuesta.Correcta" checked>
+                                                    @respuesta.Descripcion
+                                                </label>
+                                            </div>
+                                        }
+                                        break;
+                                    case (int)EnumeradosPAET.TipoPregunta.Codigo:
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="txtcodigo" rows="3"></textarea>
+                                        </div>
+                                        break;
+                                    case (int)EnumeradosPAET.TipoPregunta.Libre:
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="txtcodigo" rows="3"></textarea>
+                                        </div>
+                                        break;
+                                    case (int)EnumeradosPAET.TipoPregunta.MixtaCodigo:
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="txtcodigo" rows="3" readonly>@pregunta.Respuestas.FirstOrDefault().Descripcion</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="txtcodigo" rows="3" placeholder="Escriba qué hace el código aquí"></textarea>
+                                        </div>
+                                        break;
+                                }
+                            </div>
+                        </div>
+                        indexpregunta = indexpregunta + 1;
+                    }
+                    <ul class="pager wizard">
+                        <li class="previous first" style="display:none;"><a href="#">Primera</a></li>
+                        <li class="previous"><a href="#">Anterior</a></li>
+                        <li class="next last" style="display:none;"><a href="#">Última</a></li>
+                        <li class="next"><a href="#">Siguiente</a></li>
+                    </ul>
+                    Total Preguntas : @Model.Count()
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+</div>
+@section Scripts
+                                    {
+    <script src="@Url.Content("~/Scripts/Preguntas.js")"></script>
+}

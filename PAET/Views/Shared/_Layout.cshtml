@@ -6,13 +6,24 @@
     <link href="~/Content/images/favicon-16x16.png" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/wizard")
 </head>
 <body>
+    <header>
+        <div class="context-wraper">
+            @Html.Partial("_Header")
+        </div>
+    </header>
     @RenderBody()
+    <hr />
+    <footer>
+        @Html.Partial("_Footer")
+    </footer>
 </body>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@Scripts.Render("~/bundles/jqueryval")
+
 @RenderSection("scripts", required: false)
 @RenderSection("styles", required: false)
 </html>

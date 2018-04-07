@@ -70,3 +70,6 @@
     display: block;
     margin-top: 10px;
 }
+.top-buffer {
+    margin-top: 20px;
+}

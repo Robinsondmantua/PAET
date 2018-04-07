@@ -155,10 +155,21 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\prism.css" />
+    <Content Include="Scripts\codeflask-editor.js" />
+    <Content Include="Scripts\codeflask.js" />
+    <Content Include="Scripts\prism.js" />
+    <Content Include="Content\site.css" />
     <Content Include="Content\images\favicon-16x16.png" />
     <Content Include="Content\images\favicon-32x32.png" />
+    <Content Include="Content\images\Menu\Camera64.png" />
     <Content Include="Content\images\Logo\logo.png" />
     <Content Include="Content\images\Logo\logo2.png" />
+    <Content Include="Content\images\Menu\Chat64.png" />
+    <Content Include="Content\images\Menu\Quiz64.png" />
+    <Content Include="Content\images\Menu\Camera.png" />
+    <Content Include="Content\images\Menu\Chat.png" />
+    <Content Include="Content\images\Menu\Quiz.png" />
     <Content Include="Content\login.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -227,6 +238,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Preguntas.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -237,7 +249,10 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\PreguntasController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Enumerados\EnumeradosPAET.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -250,6 +265,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Login\Sigin.cshtml" />
+    <Content Include="Views\Menu\Menu.cshtml" />
+    <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\Shared\_header.cshtml" />
+    <Content Include="Views\Preguntas\Preguntas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -266,6 +285,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PAET.DominioBase\PAET.DominioBase.csproj">
+      <Project>{F4CE0BB7-B29C-44E8-925C-5EC238DD26DB}</Project>
+      <Name>PAET.DominioBase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PAET.Services\PAET.Services.csproj">
       <Project>{f2d6a2a9-0a7f-4f10-84af-bfd8c9efbded}</Project>
       <Name>PAET.Services</Name>
