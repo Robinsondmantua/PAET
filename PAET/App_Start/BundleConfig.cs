@@ -30,9 +30,25 @@ namespace PAET.App_Start
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            //bundles.Add(new ScriptBundle("~/bundles/prism").Include(
+            //          "~/Scripts/prism.min.js"));
+
+            //bundles.Add(new ScriptBundle("~/bundles/codeflask").Include(
+            //           "~/Scripts/codeflask.js",
+            //           "~/Scripts/codeflask-editor.js"));
+            bundles.Add(new ScriptBundle("~/bundles/codemirror").Include(
+          "~/Content/CodeMirror/lib/codemirror.js",
+          "~/Content/CodeMirror/mode/clike.js"
+          ));
+            bundles.Add(new ScriptBundle("~/bundles/editarea").Include(
+            "~/Scripts/edit_area_full.js"
+            ));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                       "~/Content/site.css",
+                       "~/Content/CodeMirror/lib/codemirror.css",
+                       "~/Content/CodeMirror/theme/eclipse.css"
+                     ));
 
         }
     }

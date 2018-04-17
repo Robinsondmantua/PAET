@@ -155,9 +155,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CodeMirror\lib\codemirror.css" />
+    <Content Include="Content\CodeMirror\mode\clike.js" />
+    <Content Include="Content\CodeMirror\theme\eclipse.css" />
     <Content Include="Content\prism.css" />
     <Content Include="Scripts\codeflask-editor.js" />
     <Content Include="Scripts\codeflask.js" />
+    <Content Include="Content\CodeMirror\lib\codemirror.js" />
+    <Content Include="Scripts\Multimedia.js" />
     <Content Include="Scripts\prism.js" />
     <Content Include="Content\site.css" />
     <Content Include="Content\images\favicon-16x16.png" />
@@ -222,6 +227,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\PAET - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -248,8 +254,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\MultiController.cs" />
     <Compile Include="Controllers\PreguntasController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Enumerados\EnumeradosPAET.cs" />
@@ -269,6 +277,8 @@
     <Content Include="Views\Shared\_footer.cshtml" />
     <Content Include="Views\Shared\_header.cshtml" />
     <Content Include="Views\Preguntas\Preguntas.cshtml" />
+    <Content Include="Views\Chat\Chat.cshtml" />
+    <Content Include="Views\Multi\Multi.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -279,7 +289,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

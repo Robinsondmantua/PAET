@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bs-docs-section">
+                <h1 class="page-header">Sala de Chat</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4 class="page-header">Usuarios Conectados</h4>
+        </div>
+        <div class="col-md-8">
+            <h4 class="page-header">Chat</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <ul class="list-group">
+                <li class="list-group-item active">Juan Español</li>
+                <li class="list-group-item">Juana Española</li>
+                <li class="list-group-item">Pedro Pérez</li>
+                <li class="list-group-item">Pablo López</li>
+                <li class="list-group-item">José Rodríguez</li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <textarea class="form-control" id="txtChat" rows="10" cols="120"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-8">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Introduzca aquí el texto a enviar">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button">Enviar</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div> 

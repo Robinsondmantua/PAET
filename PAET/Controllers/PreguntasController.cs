@@ -18,6 +18,8 @@ namespace PAET.Controllers
 
         public ActionResult Preguntas()
         {
+            var codigoc = "public void feature(){Console.WriteLine('Hola');}";
+
             IQueryable<PreguntasDto> Preguntas = new List<PreguntasDto>
             {
                 new PreguntasDto{ IdPregunta = 1, IdTecnologia = 1, IdDificultad = 1 , IdValoracion = 1, IdTipoPregunta = 1, Descripcion ="¿Cómo se declara una variable en C#?",
@@ -47,12 +49,12 @@ namespace PAET.Controllers
                 },
                 new PreguntasDto{ IdPregunta = 8, IdTecnologia = 4, IdDificultad = 2 , IdValoracion = 2, IdTipoPregunta = 4, Descripcion = "¿Qué hace este código? ¿Dónde está el error?",
                     Respuestas = new List<RespuestasDto> {
-                        new RespuestasDto { IdRespuesta = 10, IdPregunta = 8, IdValoracion = 2, Descripcion = "Public Class Vehicle ", Correcta = null}
+                        new RespuestasDto { IdRespuesta = 10, IdPregunta = 8, IdValoracion = 2, Descripcion = codigoc, Correcta = null}
                     }
                 },
                 new PreguntasDto{ IdPregunta = 9, IdTecnologia = 2, IdDificultad = 2 , IdValoracion = 2, IdTipoPregunta = 4, Descripcion = "¿Qué hace este código en C#?",
                     Respuestas = new List<RespuestasDto> {
-                        new RespuestasDto { IdRespuesta = 11, IdPregunta = 9, IdValoracion = 2, Descripcion = "Public Class Vehicle ", Correcta = null}
+                        new RespuestasDto { IdRespuesta = 11, IdPregunta = 9, IdValoracion = 2, Descripcion = codigoc, Correcta = null}
                     }
                 },
                 new PreguntasDto{ IdPregunta = 10, IdTecnologia = 1, IdDificultad = 2 , IdValoracion = 2, IdTipoPregunta = 1, Descripcion = "public static Boolean IsNotNull(this Persona persona) ¿Qué hace?.",
