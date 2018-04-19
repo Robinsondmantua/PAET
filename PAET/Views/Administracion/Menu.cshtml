@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-offset-3">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h1 class="display-4">Ménú Principal</h1>
+                </div>
+            </div>
+            <div class="account-wall">
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-2">
+                        <img src="~/Content/images/Menu/tables-64.png" />
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" onclick="location.href='@Url.Action("Preguntas", "Preguntas")'" class="btn btn-primary btn-lg disabled">Administrar tablas maestras</button>
+                    </div>
+                </div>
+                <div class="top-buffer"></div>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-2">
+                        <img src="~/Content/images/Menu/meeting-64.png" />
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" onclick="location.href='@Url.Action("Chat", "Chat")'" class="btn btn-primary btn-lg">Configurar Entrevista</button>
+                    </div>
+                </div>
+                <div class="top-buffer"></div>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-2">
+                        <img src="~/Content/images/Menu/star64.png" />
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" onclick="location.href='@Url.Action("Multi", "Multi")'" class="btn btn-primary btn-lg disabled">Valorar Candidatos</button>
+                    </div>
+                </div>
+                <div class="top-buffer"></div>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-2">
+                        <img src="~/Content/images/Menu/Report64.png" />
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" onclick="location.href='@Url.Action("Multi", "Multi")'" class="btn btn-primary btn-lg disabled">Informes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Styles {
+    <link href="@Url.Content("~/Content/login.css")" rel="stylesheet" type="text/css" />
+}
+

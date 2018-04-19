@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Menú principal" controller="Menu" action="Menu">
+    <mvcSiteMapNode title="Prueba de evaluación técnica" controller="Preguntas" action="Preguntas"/>
+    <mvcSiteMapNode title="Sala de Chat" controller="Chat" action="Chat"/>
+    <mvcSiteMapNode title="Entrevista Multimedia" controller="Multi" action="Multi"/>
+  </mvcSiteMapNode>
+
+</mvcSiteMap>

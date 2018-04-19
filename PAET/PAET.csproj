@@ -63,6 +63,12 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcSiteMapProvider, Version=4.6.22.0, Culture=neutral, PublicKeyToken=1923abe4657913cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.Core.4.6.22\lib\net45\MvcSiteMapProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider.WebActivator, Version=4.6.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.4.6.22\lib\net45\MvcSiteMapProvider.WebActivator.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -158,10 +164,15 @@
     <Content Include="Content\CodeMirror\lib\codemirror.css" />
     <Content Include="Content\CodeMirror\mode\clike.js" />
     <Content Include="Content\CodeMirror\theme\eclipse.css" />
+    <Content Include="Content\images\Menu\meeting-64.png" />
+    <Content Include="Content\images\Menu\Report64.png" />
+    <Content Include="Content\images\Menu\star64.png" />
+    <Content Include="Content\images\Menu\tables-64.png" />
     <Content Include="Content\prism.css" />
     <Content Include="Scripts\codeflask-editor.js" />
     <Content Include="Scripts\codeflask.js" />
     <Content Include="Content\CodeMirror\lib\codemirror.js" />
+    <Content Include="Scripts\ConfEntrevista.js" />
     <Content Include="Scripts\Multimedia.js" />
     <Content Include="Scripts\prism.js" />
     <Content Include="Content\site.css" />
@@ -227,6 +238,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Mvc.sitemap" />
+    <None Include="MvcSiteMapSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\PAET - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -254,6 +269,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\Administracion\AdministracionController.cs" />
+    <Compile Include="Controllers\Administracion\ConfEntrevistaController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -279,6 +296,18 @@
     <Content Include="Views\Preguntas\Preguntas.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Multi\Multi.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Views\Administracion\Menu.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_headeradmin.cshtml" />
+    <Content Include="Views\ConfEntrevista\ConfEntrevista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
