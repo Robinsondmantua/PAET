@@ -8,4 +8,10 @@
             return false;
         }
     });
+    $("#lstcandidatosentrevista").chosen();
+    $("#lsttecnoentrevista").chosen();
+    $("#lstdificultadentrevista").chosen();
+    $("#lstpreguntasentrevista").chosen();
+    $("#lstchatentrevista").chosen();
+    $("#lstmultimediaentrevista").chosen();
  });

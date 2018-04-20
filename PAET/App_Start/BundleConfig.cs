@@ -47,9 +47,12 @@ namespace PAET.App_Start
                       "~/Content/bootstrap.css",
                        "~/Content/site.css",
                        "~/Content/CodeMirror/lib/codemirror.css",
-                       "~/Content/CodeMirror/theme/eclipse.css"
+                       "~/Content/CodeMirror/theme/eclipse.css",
+                       "~/Content/chosen.css",
+                       "~/Content/chosen-bootstrap.css"
                      ));
-
+            bundles.Add(new ScriptBundle("~/bundles/chosen").Include(
+            "~/Scripts/chosen.jquery.js"));
         }
     }
 }

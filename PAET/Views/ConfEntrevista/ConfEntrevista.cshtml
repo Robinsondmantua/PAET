@@ -43,13 +43,17 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                <label class="form-check-label" for="inlineCheckbox1">1</label>
+                            <div class="col-xs-3 form-group">
+                                <div class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                    <label class="form-check-label" for="inlineCheckbox1">¿Forma parte de la entrevista un chat entre candidatos?</label>
+                                </div>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                <label class="form-check-label" for="inlineCheckbox2">2</label>
+                            <div class="col-xs-3 form-group">
+                                <div class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label" for="inlineCheckbox2">¿Forma parte de la entrevista una prueba multimedia?</label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,8 +61,8 @@
                         <div class="control-group">
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    @Html.Label("Seleccione los candidatos que tendrán que afrontar la prueba de evaluación técnica", htmlAttributes: new { @class = "control-label col-xs-6 pull-left" })
-                                    <select id="lsttecnorntrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
+                                    @Html.Label("Seleccione los candidatos que tendrán que afrontar la prueba de evaluación técnica", htmlAttributes: new { @class = "control-label col-xs-12 pull-left" })
+                                    <select id="lstcandidatosentrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
                                         <option value="1">Juan Español</option>
                                         <option value="2">Juana Española</option>
                                         <option value="3">Pedro Pérez</option>
@@ -68,8 +72,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    @Html.Label("Seleccione el grupo de tecnologías que formarán parte de la entrevista", htmlAttributes: new { @class = "control-label col-xs-6 pull-left" })
-                                    <select id="lsttecnorntrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
+                                    @Html.Label("Seleccione el grupo de tecnologías que formarán parte de la entrevista", htmlAttributes: new { @class = "control-label col-xs-12 pull-left" })
+                                    <select id="lsttecnoentrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
                                         <option value="1">C#</option>
                                         <option value="2">Linq</option>
                                         <option value="3">Vb.Net</option>
@@ -77,8 +81,8 @@
                                     </select>
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    @Html.Label("Seleccione la dificultad de las preguntas de la entrevista", htmlAttributes: new { @class = "control-label col-xs-6 pull-left" })
-                                    <select id="lsttecnorntrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
+                                    @Html.Label("Seleccione la dificultad de las preguntas de la entrevista", htmlAttributes: new { @class = "control-label col-xs-12 pull-left" })
+                                    <select id="lstdificultadentrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
                                         <option value="1">Fácil</option>
                                         <option value="2">Media</option>
                                         <option value="3">Alta</option>
@@ -86,8 +90,8 @@
                                     </select>
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    @Html.Label("Seleccione las preguntas de la entrevista (si no selecciona ninguna o no coincide con el número del paso anterior, se seleccionarán aleatoriamente al finalizar el asistente)", htmlAttributes: new { @class = "control-label col-xs-6 pull-left" })
-                                    <select id="lsttecnorntrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
+                                    @Html.Label("Seleccione las preguntas de la entrevista (si no selecciona ninguna o no coincide con el número del paso anterior, se seleccionarán aleatoriamente al finalizar el asistente)", htmlAttributes: new { @class = "control-label col-xs-12 pull-left" })
+                                    <select id="lstpreguntasentrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
                                         <option value="1">¿Cómo se declara una variable en C#?</option>
                                         <option value="2">Explica en breves palabras las diferencias entre una clase abstracta y una interfaz"</option>
                                         <option value="3">Escribe un programa que muestre en pantalla los números del 1 al 100, sustituyendo los múltiplos de 3 por la palabra “Fizz” y, a su vez, los múltiplos de 5 por “Buzz”. Para los guarismos que, al tiempo, son múltiplos de 3 y 5, utiliza el combinado “FizzBuzz”</option>
@@ -100,8 +104,8 @@
                     <div class="tab-pane" id="tab3">
                         <div class="control-group">
                             <div class="col-md-12 form-group">
-                                @Html.Label("Seleccione los candidatos que formarán parte del chat", htmlAttributes: new { @class = "control-label col-xs-6 pull-left" })
-                                <select id="lsttecnorntrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
+                                @Html.Label("Seleccione los candidatos que formarán parte del chat", htmlAttributes: new { @class = "control-label col-xs-12 pull-left" })
+                                <select id="lstchatentrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
                                     <option value="1">Juan Español</option>
                                     <option value="2">Juana Española</option>
                                     <option value="3">Pedro Pérez</option>
@@ -116,8 +120,8 @@
                         <div class="control-group">
                             <div class="control-group">
                                 <div class="col-md-12 form-group">
-                                    @Html.Label("Seleccione los candidatos que tendrán que afrontar una entrevista multimedia", htmlAttributes: new { @class = "control-label col-xs-6 pull-left" })
-                                    <select id="lsttecnorntrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
+                                    @Html.Label("Seleccione los candidatos que tendrán que afrontar una entrevista multimedia", htmlAttributes: new { @class = "control-label col-xs-12 pull-left" })
+                                    <select id="lstmultimediaentrevista" multiple="multiple" name="lsttecnorntrevista" class="form-control">
                                         <option value="1">Juan Español</option>
                                         <option value="2">Juana Española</option>
                                         <option value="3">Pedro Pérez</option>
