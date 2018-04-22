@@ -1,4 +1,7 @@
-﻿.oculto{display:none}
+﻿.oculto{
+    opacity: 0.0;
+    filter: alpha(opacity=0); /* For IE8 and earlier */
+}
 .derecha{float:right}
 .bs-callout-info h4 {
     color: #1b809e;
@@ -6,6 +9,6 @@
 .codigo{
     width:100%;
 }
-.margenform{
-    margin-top : 15px;
+.tab-pane {
+    margin-top: 15px !important;
 }

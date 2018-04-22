@@ -14,15 +14,23 @@
         }
         // <--
     }
-$(document).ready(function () {
-    $('#rootwizard').bootstrapWizard({
-        'tabClass': 'nav nav-pills',
-        'withVisible': false
-    });
+    $(document).ready(function () {
+        $('#rootwizard').bootstrapWizard({
+            'tabClass': 'nav nav-pills oculto',
+            'withVisible': false,
+            'onNext': function (tab, navigation, index) {
+                initSecondaryCodeEditor();
+            },
+            'onPrevious': function (tab, navigation, index) {
+                initSecondaryCodeEditor();
+            },
+            'onFinish': function (tab, navigation, index) {
+            }
+        });
 
-    // https://codepen.io/lloiser/pen/arBkv Este código permite buscar las instancias
-    // del editor de código CodeMirror y refrescarlas en las pestañas que están ocultas.
-    $('#preguntas_test > li > a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        // https://codepen.io/lloiser/pen/arBkv Este código permite buscar las instancias
+        // del editor de código CodeMirror y refrescarlas en las pestañas que están ocultas.
+        $('#preguntas_test > li > a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             if ($(e.target).is(":visible")) {
                 initSecondaryCodeEditor();
             }

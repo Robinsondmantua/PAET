@@ -8,5 +8,4 @@
     <mvcSiteMapNode title="Sala de Chat" controller="Chat" action="Chat"/>
     <mvcSiteMapNode title="Entrevista Multimedia" controller="Multi" action="Multi"/>
   </mvcSiteMapNode>
-
 </mvcSiteMap>
