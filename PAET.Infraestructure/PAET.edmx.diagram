@@ -41,6 +41,7 @@
         <AssociationConnector Association="TestModel.FK_EntrevistaPregunta_Preguntas" />
         <AssociationConnector Association="TestModel.FK_EntrevistaPregunta_Valoracion" />
         <AssociationConnector Association="TestModel.FK_UsuariosAdmin_Rol" />
+        <AssociationConnector Association="TestModel.FK_EntrevistaPregunta_Respuestas" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -26,6 +26,9 @@ namespace PAET.Test
             {
                 cfg.CreateMap<PreguntasDto, Preguntas>().ReverseMap();
                 cfg.CreateMap<RespuestasDto, Respuestas>().ReverseMap();
+                cfg.CreateMap<CandidatosDto, Candidatos>().ReverseMap();
+                cfg.CreateMap<ChatEntrevistaCandidatoDto, ChatEntrevistaCandidato>().ReverseMap();
+                cfg.CreateMap<EntrevistaCandidatoDto, EntrevistaCandidato>().ReverseMap();
             });
 
         }

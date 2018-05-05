@@ -291,6 +291,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -318,6 +319,7 @@
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Shared\_headeradmin.cshtml" />
     <Content Include="Views\ConfEntrevista\ConfEntrevista.cshtml" />
+    <Content Include="Views\Login\_ErrorSignIn.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -327,12 +329,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PAET.Comun\PAET.Comun.csproj">
+      <Project>{3C29585B-3D91-4324-A7C8-8521A9E02EBA}</Project>
+      <Name>PAET.Comun</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PAET.DominioBase\PAET.DominioBase.csproj">
       <Project>{F4CE0BB7-B29C-44E8-925C-5EC238DD26DB}</Project>
       <Name>PAET.DominioBase</Name>

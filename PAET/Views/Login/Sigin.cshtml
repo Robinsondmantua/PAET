@@ -1,6 +1,8 @@
-﻿        @{
-            Layout = "~/Views/Shared/_Layout.cshtml";
-        }
+﻿@using PAET.Models
+@model LoginViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
@@ -8,7 +10,6 @@
                 @using (Html.BeginForm("ComprobarAcceso", "Login", FormMethod.Post, new { @class = "form-signin", enctype = "multipart / form - data" }))
                 {
                     @Html.ValidationSummary(true)
-
                     <img class="profile-img" src="~/Content/images/Logo/logo2.png" alt="" />
                     <input type="text" class="form-control" placeholder="Usuario" name="txtusuario" required autofocus>
                     <input type="password" class="form-control" placeholder="Contraseña" name="txtpwd" required>
@@ -18,11 +19,14 @@
                 }
             </div>
         </div>
+        @if (!Model.AccesoCorrecto)
+        {@Html.Partial("_ErrorSignIn");
+    }
     </div>
 </div>
 
 @section Styles {
-    <link href="@Url.Content("~/Content/login.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/login.css")" rel="stylesheet" type="text/css" />
 }
 
 

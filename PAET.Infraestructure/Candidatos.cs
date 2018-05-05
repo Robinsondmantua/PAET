@@ -32,6 +32,8 @@ namespace PAET.Infraestructure
         public string Apodo { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
+        public byte[] Pwd { get; set; }
+        public bool Activo { get; set; }
     
         public virtual CategoriaProfesional CategoriaProfesional { get; set; }
         public virtual Experiencia Experiencia { get; set; }

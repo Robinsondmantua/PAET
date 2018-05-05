@@ -19,6 +19,8 @@ namespace PAET.DominioBase.Entidades_Dominio
         public string Apodo { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
+        public byte[] Pwd { get; set; }
+        public bool Activo { get; set; }
         public IEnumerable<ChatEntrevistaCandidatoDto> ChatEntrevistaCandidato { get; set; }
         public IEnumerable<EntrevistaCandidatoDto> EntrevistaCandidato { get; set; }
     }

@@ -1,3 +1,6 @@
+using PAET.Services;
+using PAET.Services.Interfaces;
+using PAET.Services.Services;
 using System;
 
 using Unity;
@@ -42,6 +45,8 @@ namespace PAET
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType<ICandidatosService, CandidatosService>();
+            container.RegisterType<IPreguntasService, PreguntasService>();
         }
     }
 }

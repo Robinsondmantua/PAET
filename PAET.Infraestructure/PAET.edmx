@@ -13,13 +13,15 @@
           <Property Name="IdCategoria" Type="int" />
           <Property Name="IdTitulacion" Type="int" />
           <Property Name="IdExperiencia" Type="int" />
-          <Property Name="Nombre" Type="varchar" MaxLength="100" />
-          <Property Name="Apellido1" Type="varchar" MaxLength="100" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Apellido2" Type="varchar" MaxLength="100" />
-          <Property Name="NIFNIE" Type="varchar" MaxLength="10" />
-          <Property Name="Apodo" Type="varchar" MaxLength="30" />
-          <Property Name="Email" Type="varchar" MaxLength="255" />
-          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="NIFNIE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Apodo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pwd" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="CategoriaProfesional">
           <Key>
@@ -71,6 +73,7 @@
           <Property Name="IdEntrevista" Type="int" />
           <Property Name="IdPregunta" Type="int" />
           <Property Name="IdValoracion" Type="int" />
+          <Property Name="IdRespuesta" Type="int" />
         </EntityType>
         <EntityType Name="Entrevistas">
           <Key>
@@ -293,6 +296,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_EntrevistaPregunta_Respuestas">
+          <End Role="Respuestas" Type="Self.Respuestas" Multiplicity="0..1" />
+          <End Role="EntrevistaPregunta" Type="Self.EntrevistaPregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Respuestas">
+              <PropertyRef Name="IdRespuesta" />
+            </Principal>
+            <Dependent Role="EntrevistaPregunta">
+              <PropertyRef Name="IdRespuesta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_EntrevistaPregunta_Valoracion">
           <End Role="Valoracion" Type="Self.Valoracion" Multiplicity="0..1" />
           <End Role="EntrevistaPregunta" Type="Self.EntrevistaPregunta" Multiplicity="*" />
@@ -437,6 +452,10 @@
             <End Role="Preguntas" EntitySet="Preguntas" />
             <End Role="EntrevistaPregunta" EntitySet="EntrevistaPregunta" />
           </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaPregunta_Respuestas" Association="Self.FK_EntrevistaPregunta_Respuestas">
+            <End Role="Respuestas" EntitySet="Respuestas" />
+            <End Role="EntrevistaPregunta" EntitySet="EntrevistaPregunta" />
+          </AssociationSet>
           <AssociationSet Name="FK_EntrevistaPregunta_Valoracion" Association="Self.FK_EntrevistaPregunta_Valoracion">
             <End Role="Valoracion" EntitySet="Valoracion" />
             <End Role="EntrevistaPregunta" EntitySet="EntrevistaPregunta" />
@@ -506,6 +525,7 @@
           <Property Name="Correcta" Type="Boolean" />
           <NavigationProperty Name="Preguntas" Relationship="Self.FK_Respuestas_Preguntas" FromRole="Respuestas" ToRole="Preguntas" />
           <NavigationProperty Name="Valoracion" Relationship="Self.FK_Respuestas_Valoracion" FromRole="Respuestas" ToRole="Valoracion" />
+          <NavigationProperty Name="EntrevistaPregunta" Relationship="TestModel.FK_EntrevistaPregunta_Respuestas" FromRole="Respuestas" ToRole="EntrevistaPregunta" />
         </EntityType>
         <EntityType Name="Tecnologia">
           <Key>
@@ -696,6 +716,10 @@
             <End Role="Rol" EntitySet="Rol" />
             <End Role="UsuariosAdmin" EntitySet="UsuariosAdmin" />
           </AssociationSet>
+          <AssociationSet Name="FK_EntrevistaPregunta_Respuestas" Association="TestModel.FK_EntrevistaPregunta_Respuestas">
+            <End Role="Respuestas" EntitySet="Respuestas" />
+            <End Role="EntrevistaPregunta" EntitySet="EntrevistaPregunta" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Candidatos">
           <Key>
@@ -705,18 +729,20 @@
           <Property Name="IdCategoria" Type="Int32" />
           <Property Name="IdTitulacion" Type="Int32" />
           <Property Name="IdExperiencia" Type="Int32" />
-          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Apellido1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Apellido2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="NIFNIE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Apodo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NIFNIE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apodo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CategoriaProfesional" Relationship="TestModel.FK_Candidatos_CategoriaProfesional" FromRole="Candidatos" ToRole="CategoriaProfesional" />
           <NavigationProperty Name="Experiencia" Relationship="TestModel.FK_Candidatos_Experiencia" FromRole="Candidatos" ToRole="Experiencia" />
           <NavigationProperty Name="Titulacion" Relationship="TestModel.FK_Candidatos_Titulacion" FromRole="Candidatos" ToRole="Titulacion" />
           <NavigationProperty Name="ChatEntrevistaCandidato" Relationship="TestModel.FK_ChatEntrevistaCandidato_Candidatos" FromRole="Candidatos" ToRole="ChatEntrevistaCandidato" />
           <NavigationProperty Name="EntrevistaCandidato" Relationship="TestModel.FK_EntrevistaCandidato_Candidatos" FromRole="Candidatos" ToRole="EntrevistaCandidato" />
+          <Property Name="Pwd" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="CategoriaProfesional">
           <Key>
@@ -771,6 +797,8 @@
           <NavigationProperty Name="Entrevistas" Relationship="TestModel.FK_EntrevistaPregunta_Entrevistas" FromRole="EntrevistaPregunta" ToRole="Entrevistas" />
           <NavigationProperty Name="Preguntas" Relationship="TestModel.FK_EntrevistaPregunta_Preguntas" FromRole="EntrevistaPregunta" ToRole="Preguntas" />
           <NavigationProperty Name="Valoracion" Relationship="TestModel.FK_EntrevistaPregunta_Valoracion" FromRole="EntrevistaPregunta" ToRole="Valoracion" />
+          <Property Name="IdRespuesta" Type="Int32" />
+          <NavigationProperty Name="Respuestas" Relationship="TestModel.FK_EntrevistaPregunta_Respuestas" FromRole="EntrevistaPregunta" ToRole="Respuestas" />
         </EntityType>
         <EntityType Name="Entrevistas">
           <Key>
@@ -972,6 +1000,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_EntrevistaPregunta_Respuestas">
+          <End Type="TestModel.Respuestas" Role="Respuestas" Multiplicity="0..1" />
+          <End Type="TestModel.EntrevistaPregunta" Role="EntrevistaPregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Respuestas">
+              <PropertyRef Name="IdRespuesta" />
+            </Principal>
+            <Dependent Role="EntrevistaPregunta">
+              <PropertyRef Name="IdRespuesta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1036,6 +1076,8 @@
           <EntitySetMapping Name="Candidatos">
             <EntityTypeMapping TypeName="TestModel.Candidatos">
               <MappingFragment StoreEntitySet="Candidatos">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
                 <ScalarProperty Name="Telefono" ColumnName="Telefono" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Apodo" ColumnName="Apodo" />
@@ -1090,6 +1132,7 @@
           <EntitySetMapping Name="EntrevistaPregunta">
             <EntityTypeMapping TypeName="TestModel.EntrevistaPregunta">
               <MappingFragment StoreEntitySet="EntrevistaPregunta">
+                <ScalarProperty Name="IdRespuesta" ColumnName="IdRespuesta" />
                 <ScalarProperty Name="IdValoracion" ColumnName="IdValoracion" />
                 <ScalarProperty Name="IdPregunta" ColumnName="IdPregunta" />
                 <ScalarProperty Name="IdEntrevista" ColumnName="IdEntrevista" />

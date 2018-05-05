@@ -82,6 +82,7 @@
   <ItemGroup>
     <Compile Include="FakeContext\FakePAETContext.cs" />
     <Compile Include="Interfaces\IFakeContext.cs" />
+    <Compile Include="LoginTest.cs" />
     <Compile Include="PreguntasTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +91,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PAET.Comun\PAET.Comun.csproj">
+      <Project>{3C29585B-3D91-4324-A7C8-8521A9E02EBA}</Project>
+      <Name>PAET.Comun</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PAET.DominioBase\PAET.DominioBase.csproj">
       <Project>{F4CE0BB7-B29C-44E8-925C-5EC238DD26DB}</Project>
       <Name>PAET.DominioBase</Name>

@@ -13,8 +13,5 @@ namespace PAET.DominioBase.Entidades_Dominio
         public int IdCandidato { get; set; }
         public Nullable<int> IdValoracion { get; set; }
 
-        public CandidatosDto Candidatos { get; set; }
-        public ChatDto Chat { get; set; }
-        public EntrevistasDto Entrevistas { get; set; }
     }
 }

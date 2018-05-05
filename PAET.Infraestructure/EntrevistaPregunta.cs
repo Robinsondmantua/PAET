@@ -18,9 +18,11 @@ namespace PAET.Infraestructure
         public Nullable<int> IdEntrevista { get; set; }
         public Nullable<int> IdPregunta { get; set; }
         public Nullable<int> IdValoracion { get; set; }
+        public Nullable<int> IdRespuesta { get; set; }
     
         public virtual Entrevistas Entrevistas { get; set; }
         public virtual Preguntas Preguntas { get; set; }
         public virtual Valoracion Valoracion { get; set; }
+        public virtual Respuestas Respuestas { get; set; }
     }
 }
