@@ -12,24 +12,19 @@ namespace PAET.Infraestructure
     using System;
     using System.Collections.Generic;
     
-    public partial class EntrevistaPregunta
+    public partial class MultimediaEntrevistaCandidato
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EntrevistaPregunta()
-        {
-            this.EntrevistaPreguntaTest = new HashSet<EntrevistaPreguntaTest>();
-        }
-    
-        public int IdEntrevistaPregunta { get; set; }
+        public int IdMultiEntrevistaCandidato { get; set; }
         public Nullable<int> IdEntrevistaCandidato { get; set; }
         public Nullable<int> IdValoracion { get; set; }
-        public Nullable<System.DateTime> Fecha_Inicio { get; set; }
+        public byte[] Contenido { get; set; }
         public bool Finalizacion { get; set; }
-        public int NumPreguntas { get; set; }
+        public string UsuarioValoracion { get; set; }
+        public Nullable<System.DateTime> FechaValoracion { get; set; }
+        public Nullable<int> IdMultimedia { get; set; }
     
         public virtual EntrevistaCandidato EntrevistaCandidato { get; set; }
         public virtual Valoracion Valoracion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EntrevistaPreguntaTest> EntrevistaPreguntaTest { get; set; }
+        public virtual Multimedia Multimedia { get; set; }
     }
 }

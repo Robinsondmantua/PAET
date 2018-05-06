@@ -17,7 +17,7 @@ namespace PAET.Infraestructure
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Respuestas()
         {
-            this.EntrevistaPregunta = new HashSet<EntrevistaPregunta>();
+            this.EntrevistaPreguntaTest = new HashSet<EntrevistaPreguntaTest>();
         }
     
         public int IdRespuesta { get; set; }
@@ -26,9 +26,9 @@ namespace PAET.Infraestructure
         public string Descripcion { get; set; }
         public Nullable<bool> Correcta { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EntrevistaPreguntaTest> EntrevistaPreguntaTest { get; set; }
         public virtual Preguntas Preguntas { get; set; }
         public virtual Valoracion Valoracion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EntrevistaPregunta> EntrevistaPregunta { get; set; }
     }
 }

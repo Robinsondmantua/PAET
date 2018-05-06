@@ -12,8 +12,6 @@ namespace PAET.DominioBase.Entidades_Dominio
         public string Descripcion { get; set; }
         public Nullable<System.DateTime> Fecha_Inicio { get; set; }
         public Nullable<System.DateTime> Fecha_Fin { get; set; }
-        public IEnumerable<ChatEntrevistaCandidatoDto> ChatEntrevistaCandidato { get; set; }
         public IEnumerable<EntrevistaCandidatoDto> EntrevistaCandidato { get; set; }
-        public IEnumerable<EntrevistaPreguntaDto> EntrevistaPregunta { get; set; }
     }
 }

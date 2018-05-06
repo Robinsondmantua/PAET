@@ -11,6 +11,6 @@ namespace PAET.Services.Interfaces
 {
     public interface ICandidatosService: IServiceBase<CandidatosDto>
     {
-        ResultadoAccion AccesoCorrecto(String usuario, String Pwd);
+        ResultadoAccion<CandidatosDto> AccesoCorrecto(String usuario, String Pwd);
     }
 }

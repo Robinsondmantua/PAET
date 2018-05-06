@@ -14,13 +14,16 @@ namespace PAET.Infraestructure
     
     public partial class ChatEntrevistaCandidato
     {
-        public int IdChat { get; set; }
-        public int IdEntrevista { get; set; }
-        public int IdCandidato { get; set; }
+        public int IdChatEntrevistaCandidato { get; set; }
+        public Nullable<int> IdEntrevistaCandidato { get; set; }
         public Nullable<int> IdValoracion { get; set; }
+        public bool Finalizacion { get; set; }
+        public string UsuarioValoracion { get; set; }
+        public Nullable<System.DateTime> FechaValoracion { get; set; }
+        public Nullable<int> IdChat { get; set; }
     
-        public virtual Candidatos Candidatos { get; set; }
+        public virtual EntrevistaCandidato EntrevistaCandidato { get; set; }
+        public virtual Valoracion Valoracion { get; set; }
         public virtual Chat Chat { get; set; }
-        public virtual Entrevistas Entrevistas { get; set; }
     }
 }

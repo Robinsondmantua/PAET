@@ -51,8 +51,11 @@
     <Compile Include="Entidades Dominio\DificultadDto.cs" />
     <Compile Include="Entidades Dominio\EntrevistaCandidatoDto.cs" />
     <Compile Include="Entidades Dominio\EntrevistaPreguntaDto.cs" />
+    <Compile Include="Entidades Dominio\EntrevistaPreguntaTestDto.cs" />
     <Compile Include="Entidades Dominio\EntrevistasDto.cs" />
     <Compile Include="Entidades Dominio\ExperienciaDto.cs" />
+    <Compile Include="Entidades Dominio\MultimediaDto.cs" />
+    <Compile Include="Entidades Dominio\MultimediaEntrevistaCandidatoDto.cs" />
     <Compile Include="Entidades Dominio\PreguntasDto.cs" />
     <Compile Include="Entidades Dominio\RespuestasDto.cs" />
     <Compile Include="Entidades Dominio\RolDto.cs" />

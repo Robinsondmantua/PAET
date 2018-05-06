@@ -17,19 +17,25 @@ namespace PAET.Infraestructure
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Valoracion()
         {
+            this.ChatEntrevistaCandidato = new HashSet<ChatEntrevistaCandidato>();
+            this.EntrevistaPregunta = new HashSet<EntrevistaPregunta>();
+            this.MultimediaEntrevistaCandidato = new HashSet<MultimediaEntrevistaCandidato>();
             this.Preguntas = new HashSet<Preguntas>();
             this.Respuestas = new HashSet<Respuestas>();
-            this.EntrevistaPregunta = new HashSet<EntrevistaPregunta>();
         }
     
         public int IdValoracion { get; set; }
         public Nullable<int> Puntuacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChatEntrevistaCandidato> ChatEntrevistaCandidato { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EntrevistaPregunta> EntrevistaPregunta { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MultimediaEntrevistaCandidato> MultimediaEntrevistaCandidato { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Preguntas> Preguntas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Respuestas> Respuestas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EntrevistaPregunta> EntrevistaPregunta { get; set; }
     }
 }

@@ -17,9 +17,7 @@ namespace PAET.Infraestructure
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Entrevistas()
         {
-            this.ChatEntrevistaCandidato = new HashSet<ChatEntrevistaCandidato>();
             this.EntrevistaCandidato = new HashSet<EntrevistaCandidato>();
-            this.EntrevistaPregunta = new HashSet<EntrevistaPregunta>();
         }
     
         public int IdEntrevista { get; set; }
@@ -28,10 +26,6 @@ namespace PAET.Infraestructure
         public Nullable<System.DateTime> Fecha_Fin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChatEntrevistaCandidato> ChatEntrevistaCandidato { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EntrevistaCandidato> EntrevistaCandidato { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EntrevistaPregunta> EntrevistaPregunta { get; set; }
     }
 }

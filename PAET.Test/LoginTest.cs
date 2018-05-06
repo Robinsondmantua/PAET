@@ -46,7 +46,7 @@ namespace PAET.Test
 
             var service = new CandidatosService(mockContext.Object);
 
-            ResultadoAccion resultado = service.AccesoCorrecto("GomezJ", "prueba$23");
+            ResultadoAccion<CandidatosDto> resultado = service.AccesoCorrecto("GomezJ", "prueba$23");
 
             Assert.AreEqual(ResultadoAccion.CodigoResultado.OK, resultado.ResultCode);
         }

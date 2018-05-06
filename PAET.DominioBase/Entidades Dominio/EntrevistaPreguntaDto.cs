@@ -9,12 +9,11 @@ namespace PAET.DominioBase.Entidades_Dominio
     public class EntrevistaPreguntaDto
     {
         public int IdEntrevistaPregunta { get; set; }
-        public Nullable<int> IdEntrevista { get; set; }
-        public Nullable<int> IdPregunta { get; set; }
+        public Nullable<int> IdEntrevistaCandidato { get; set; }
         public Nullable<int> IdValoracion { get; set; }
-
-        public EntrevistasDto Entrevistas { get; set; }
-        public PreguntasDto Preguntas { get; set; }
-        public ValoracionDto Valoracion { get; set; }
+        public Nullable<System.DateTime> Fecha_Inicio { get; set; }
+        public bool Finalizacion { get; set; }
+        public int NumPreguntas { get; set; }
+        public IEnumerable<EntrevistaPreguntaTestDto> EntrevistaPreguntaTest { get; set; }
     }
 }

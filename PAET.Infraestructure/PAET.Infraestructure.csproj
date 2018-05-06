@@ -72,10 +72,19 @@
     <Compile Include="EntrevistaPregunta.cs">
       <DependentUpon>PAET.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntrevistaPreguntaTest.cs">
+      <DependentUpon>PAET.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entrevistas.cs">
       <DependentUpon>PAET.tt</DependentUpon>
     </Compile>
     <Compile Include="Experiencia.cs">
+      <DependentUpon>PAET.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Multimedia.cs">
+      <DependentUpon>PAET.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MultimediaEntrevistaCandidato.cs">
       <DependentUpon>PAET.tt</DependentUpon>
     </Compile>
     <Compile Include="PAET.Context.cs">

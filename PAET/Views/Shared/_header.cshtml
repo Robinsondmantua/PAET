@@ -11,6 +11,9 @@
     <hr />
     <div class="row">
         @Html.MvcSiteMap().SiteMapPath()
-
     </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="pull-right"><button type="button" class="btn btn-default btn-md" onclick="location.href='@Url.Action("SignOut", "Login")'"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Cerrar Sesión </button></div>
+    }
 </div>

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace PAET.Controllers
 {
+    [Authorize]
     public class MultiController : Controller
     {
         // GET: Multi

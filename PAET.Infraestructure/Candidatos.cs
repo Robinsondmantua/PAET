@@ -17,7 +17,6 @@ namespace PAET.Infraestructure
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Candidatos()
         {
-            this.ChatEntrevistaCandidato = new HashSet<ChatEntrevistaCandidato>();
             this.EntrevistaCandidato = new HashSet<EntrevistaCandidato>();
         }
     
@@ -38,8 +37,6 @@ namespace PAET.Infraestructure
         public virtual CategoriaProfesional CategoriaProfesional { get; set; }
         public virtual Experiencia Experiencia { get; set; }
         public virtual Titulacion Titulacion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChatEntrevistaCandidato> ChatEntrevistaCandidato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EntrevistaCandidato> EntrevistaCandidato { get; set; }
     }

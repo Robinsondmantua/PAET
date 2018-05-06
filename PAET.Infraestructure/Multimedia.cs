@@ -12,27 +12,17 @@ namespace PAET.Infraestructure
     using System;
     using System.Collections.Generic;
     
-    public partial class EntrevistaCandidato
+    public partial class Multimedia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EntrevistaCandidato()
+        public Multimedia()
         {
-            this.ChatEntrevistaCandidato = new HashSet<ChatEntrevistaCandidato>();
-            this.EntrevistaPregunta = new HashSet<EntrevistaPregunta>();
             this.MultimediaEntrevistaCandidato = new HashSet<MultimediaEntrevistaCandidato>();
         }
     
-        public int IdEntrevistaCandidato { get; set; }
-        public Nullable<int> IdEntrevista { get; set; }
-        public Nullable<int> IdCandidato { get; set; }
-        public Nullable<decimal> ValoracionFinal { get; set; }
+        public int IdMultimedia { get; set; }
+        public string Descripcion { get; set; }
     
-        public virtual Candidatos Candidatos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChatEntrevistaCandidato> ChatEntrevistaCandidato { get; set; }
-        public virtual Entrevistas Entrevistas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EntrevistaPregunta> EntrevistaPregunta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MultimediaEntrevistaCandidato> MultimediaEntrevistaCandidato { get; set; }
     }
