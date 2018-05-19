@@ -8,6 +8,10 @@
             <h1 class="display-3">Procedimiento de Asistencia para Entrevistas Técnicas</h1>
         </div>
     </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="pull-right"><span class="label label-primary">Bienvenido @User.Identity.Name</span></div>
+    }
     <hr />
     <div class="row">
         @Html.MvcSiteMap().SiteMapPath()
@@ -17,3 +21,4 @@
         <div class="pull-right"><button type="button" class="btn btn-default btn-md" onclick="location.href='@Url.Action("SignOut", "Login")'"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Cerrar Sesión </button></div>
     }
 </div>
+

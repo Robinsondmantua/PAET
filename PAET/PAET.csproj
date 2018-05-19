@@ -334,6 +334,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PAET.Cache\PAET.Cache.csproj">
+      <Project>{5C94DF93-0EF4-461F-832B-A7882565119C}</Project>
+      <Name>PAET.Cache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PAET.Comun\PAET.Comun.csproj">
       <Project>{3C29585B-3D91-4324-A7C8-8521A9E02EBA}</Project>
       <Name>PAET.Comun</Name>

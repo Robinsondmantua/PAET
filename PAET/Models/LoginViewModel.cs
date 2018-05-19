@@ -9,5 +9,6 @@ namespace PAET.Models
     {
         public bool AccesoCorrecto { get; set; }
         public string MensajeError { get; set; }
+        public string Usuario { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Security;
 
 namespace PAET
 {
@@ -16,6 +17,11 @@ namespace PAET
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+        protected void Application_End()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
         }
     }
 }

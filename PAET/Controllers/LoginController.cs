@@ -1,4 +1,5 @@
-﻿using PAET.Comun;
+﻿using PAET.Cache.Cache;
+using PAET.Comun;
 using PAET.DominioBase.Entidades_Dominio;
 using PAET.Models;
 using PAET.Services.Interfaces;
@@ -27,9 +28,10 @@ namespace PAET.Controllers
             return View();
         }
         [AllowAnonymous]
+        [NoCache]
         public ActionResult Sigin()
         {
-            Session.Clear();
+            if (User.Identity.IsAuthenticated) FormsAuthentication.SignOut();
             LoginViewModel login = new LoginViewModel();
             login.AccesoCorrecto = true;
             return View(login);
@@ -48,10 +50,12 @@ namespace PAET.Controllers
             ResultadoAccion<CandidatosDto> resultado;
             if (ModelState.IsValid)
             {
+
                 resultado = _candidatoService.AccesoCorrecto(form["txtusuario"], form["txtpwd"]);
                 if (resultado.ResultCode == ResultadoAccion.CodigoResultado.OK)
                 {
-                    FormsAuthentication.SetAuthCookie(resultado.Entidad.Apodo, false);
+                    string NombreCompleto = resultado.Entidad.Nombre + " " + resultado.Entidad.Apellido1 + " " + resultado.Entidad.Apellido2;
+                    FormsAuthentication.SetAuthCookie(NombreCompleto, false);
                     return RedirectToAction("Menu", "Menu");
                 }
                 else
