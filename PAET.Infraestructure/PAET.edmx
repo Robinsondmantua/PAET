@@ -207,6 +207,19 @@
           <Property Name="IdValoracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Puntuacion" Type="int" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PAET.dbo.VwEntrevistaCandidatos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwEntrevistaCandidatos">
+          <Key>
+            <PropertyRef Name="IdCandidato" />
+            <PropertyRef Name="IdEntrevistaCandidato" />
+          </Key>
+          <Property Name="IdCandidato" Type="int" Nullable="false" />
+          <Property Name="IdEntrevistaCandidato" Type="int" Nullable="false" />
+          <Property Name="IdEntrevista" Type="int" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="302" />
+          <Property Name="ValoracionFinal" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
         <Association Name="FK_Candidatos_CategoriaProfesional">
           <End Role="CategoriaProfesional" Type="Self.CategoriaProfesional" Multiplicity="0..1" />
           <End Role="Candidatos" Type="Self.Candidatos" Multiplicity="*" />
@@ -506,6 +519,15 @@
           <EntitySet Name="Titulacion" EntityType="Self.Titulacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UsuariosAdmin" EntityType="Self.UsuariosAdmin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Valoracion" EntityType="Self.Valoracion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VwEntrevistaCandidatos" EntityType="Self.VwEntrevistaCandidatos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwEntrevistaCandidatos].[IdCandidato] AS [IdCandidato], 
+    [VwEntrevistaCandidatos].[IdEntrevistaCandidato] AS [IdEntrevistaCandidato], 
+    [VwEntrevistaCandidatos].[IdEntrevista] AS [IdEntrevista], 
+    [VwEntrevistaCandidatos].[NombreCompleto] AS [NombreCompleto], 
+    [VwEntrevistaCandidatos].[ValoracionFinal] AS [ValoracionFinal]
+    FROM [dbo].[VwEntrevistaCandidatos] AS [VwEntrevistaCandidatos]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Candidatos_CategoriaProfesional" Association="Self.FK_Candidatos_CategoriaProfesional">
             <End Role="CategoriaProfesional" EntitySet="CategoriaProfesional" />
             <End Role="Candidatos" EntitySet="Candidatos" />
@@ -717,6 +739,7 @@
             <End Role="Multimedia" EntitySet="Multimedia" />
             <End Role="MultimediaEntrevistaCandidato" EntitySet="MultimediaEntrevistaCandidato" />
           </AssociationSet>
+          <EntitySet Name="VwEntrevistaCandidatos" EntityType="TestModel.VwEntrevistaCandidatos" />
         </EntityContainer>
         <EntityType Name="Candidatos">
           <Key>
@@ -1232,6 +1255,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VwEntrevistaCandidatos">
+          <Key>
+            <PropertyRef Name="IdCandidato" />
+            <PropertyRef Name="IdEntrevistaCandidato" />
+          </Key>
+          <Property Name="IdCandidato" Type="Int32" Nullable="false" />
+          <Property Name="IdEntrevistaCandidato" Type="Int32" Nullable="false" />
+          <Property Name="IdEntrevista" Type="Int32" />
+          <Property Name="NombreCompleto" Type="String" MaxLength="302" FixedLength="false" Unicode="false" />
+          <Property Name="ValoracionFinal" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1448,6 +1482,17 @@
               <MappingFragment StoreEntitySet="Valoracion">
                 <ScalarProperty Name="Puntuacion" ColumnName="Puntuacion" />
                 <ScalarProperty Name="IdValoracion" ColumnName="IdValoracion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwEntrevistaCandidatos">
+            <EntityTypeMapping TypeName="TestModel.VwEntrevistaCandidatos">
+              <MappingFragment StoreEntitySet="VwEntrevistaCandidatos">
+                <ScalarProperty Name="ValoracionFinal" ColumnName="ValoracionFinal" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="IdEntrevista" ColumnName="IdEntrevista" />
+                <ScalarProperty Name="IdEntrevistaCandidato" ColumnName="IdEntrevistaCandidato" />
+                <ScalarProperty Name="IdCandidato" ColumnName="IdCandidato" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

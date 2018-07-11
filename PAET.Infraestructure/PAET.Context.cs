@@ -46,5 +46,6 @@ namespace PAET.Infraestructure
         public virtual DbSet<Titulacion> Titulacion { get; set; }
         public virtual DbSet<UsuariosAdmin> UsuariosAdmin { get; set; }
         public virtual DbSet<Valoracion> Valoracion { get; set; }
+        public virtual DbSet<VwEntrevistaCandidatos> VwEntrevistaCandidatos { get; set; }
     }
 }

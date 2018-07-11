@@ -51,7 +51,7 @@ namespace PAET.Controllers
             if (ModelState.IsValid)
             {
 
-                resultado = _candidatoService.AccesoCorrecto(form["txtusuario"], form["txtpwd"]);
+                resultado = _candidatoService.ComprobarAccesoCorrecto(form["txtusuario"], form["txtpwd"]);
                 if (resultado.ResultCode == ResultadoAccion.CodigoResultado.OK)
                 {
                     string NombreCompleto = resultado.Entidad.Nombre + " " + resultado.Entidad.Apellido1 + " " + resultado.Entidad.Apellido2;

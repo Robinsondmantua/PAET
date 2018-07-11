@@ -45,14 +45,21 @@ namespace PAET.App_Start
             ));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-dialog.css",
                        "~/Content/site.css",
                        "~/Content/CodeMirror/lib/codemirror.css",
                        "~/Content/CodeMirror/theme/eclipse.css",
                        "~/Content/chosen.css",
-                       "~/Content/chosen-bootstrap.css"
+                       "~/Content/chosen-bootstrap.css", 
+                       "~/Content/bootstrap-rating.css",
+                       "~/Content/font-awesome.min.css"
                      ));
             bundles.Add(new ScriptBundle("~/bundles/chosen").Include(
             "~/Scripts/chosen.jquery.js"));
+            bundles.Add(new ScriptBundle("~/bundles/confirm").Include(
+            "~/Scripts/bootstrap-dialog.js"));
+            bundles.Add(new ScriptBundle("~/bundles/rating").Include(
+            "~/Scripts/bootstrap-rating/bootstrap-rating.min.js"));
         }
     }
 }

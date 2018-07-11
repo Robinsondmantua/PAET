@@ -12,3 +12,16 @@
 .tab-pane {
     margin-top: 15px !important;
 }
+.webgrid-row-style {
+    padding: 3px 7px 2px;
+}
+
+.webgrid-alternating-row {
+    background-color: #a8e4f6;
+    color:white;
+    padding: 3px 7px 2px;
+}
+.webgrid-column-right {
+text-align : right;
+}
+

@@ -38,21 +38,31 @@ namespace PAET.Test
         {
             IQueryable<Preguntas> preguntas = new List<Preguntas>
             {
-                new Preguntas{ IdPregunta = 1, IdTecnologia = 1, IdDificultad = 1 , IdValoracion = 1, IdTipoPregunta = 1, Descripcion ="¿Cómo se declara una variable en C#?",
+                new Preguntas{ IdPregunta = 1, IdTecnologia = 1, IdDificultad = 1 , IdValoracion = 1, IdTipoPregunta = 1,
+                    Descripcion ="¿Cómo se declara una variable en C#?",
                     Respuestas = new List<Respuestas> {
                         new Respuestas { IdRespuesta = 1, IdPregunta = 1, IdValoracion = 0, Descripcion = "Dim", Correcta = false },
                         new Respuestas { IdRespuesta = 2, IdPregunta = 1, IdValoracion = 2, Descripcion = "Tipo Implícito", Correcta = true },
                         new Respuestas { IdRespuesta = 3, IdPregunta = 1, IdValoracion = 3, Descripcion = "Declaraciones de tipos", Correcta = true },
                     }
                 },
-                new Preguntas{ IdPregunta = 2, IdTecnologia = 2, IdDificultad = 2 , IdValoracion = 3, IdTipoPregunta = 3, Descripcion ="Explica en breves palabras las diferencias entre una clase abstracta y una interfaz"},
-                new Preguntas{ IdPregunta = 3, IdTecnologia = 1, IdDificultad = 3 , IdValoracion = 7, IdTipoPregunta = 2, Descripcion = "Escribe un programa que muestre en pantalla los números del 1 al 100, sustituyendo los múltiplos de 3 por la palabra “Fizz” y, a su vez, los múltiplos de 5 por “Buzz”. Para los guarismos que, al tiempo, son múltiplos de 3 y 5, utiliza el combinado “FizzBuzz”."},
-                new Preguntas{ IdPregunta = 4, IdTecnologia = 2, IdDificultad = 3 , IdValoracion = 6, IdTipoPregunta = 3, Descripcion = "Explica brevemente los principios SOLID."},
-                new Preguntas{ IdPregunta = 5, IdTecnologia = 4, IdDificultad = 2 , IdValoracion = 5, IdTipoPregunta = 3, Descripcion = "¿Para que sirve una clase declarada como Shared?."},
-                new Preguntas{ IdPregunta = 6, IdTecnologia = 6, IdDificultad = 2 , IdValoracion = 4, IdTipoPregunta = 1, Descripcion = "Los métodos Skip y Take en Linq sirven para.....",
+                new Preguntas{ IdPregunta = 2, IdTecnologia = 2, IdDificultad = 2 , IdValoracion = 3, IdTipoPregunta = 3,
+                    Descripcion ="Explica en breves palabras las diferencias entre una clase abstracta y una interfaz"},
+                new Preguntas{ IdPregunta = 3, IdTecnologia = 1, IdDificultad = 3 , IdValoracion = 7, IdTipoPregunta = 2,
+                    Descripcion = "Escribe un programa que muestre en pantalla los números del 1 al 100, sustituyendo los múltiplos de 3 por la palabra “Fizz” y, " +
+                    "a su vez, los múltiplos de 5 por “Buzz”. Para los guarismos que, al tiempo, son múltiplos de 3 y 5, utiliza el combinado “FizzBuzz”."},
+                new Preguntas{ IdPregunta = 4, IdTecnologia = 2, IdDificultad = 3 , IdValoracion = 6, IdTipoPregunta = 3,
+                    Descripcion = "Explica brevemente los principios SOLID."},
+                new Preguntas{ IdPregunta = 5, IdTecnologia = 4, IdDificultad = 2 , IdValoracion = 5, IdTipoPregunta = 3,
+                    Descripcion = "¿Para que sirve una clase declarada como Shared?."},
+                new Preguntas{ IdPregunta = 6, IdTecnologia = 6, IdDificultad = 2 , IdValoracion = 4, IdTipoPregunta = 1,
+                    Descripcion = "Los métodos Skip y Take en Linq sirven para.....",
                     Respuestas = new List<Respuestas> {
-                        new Respuestas { IdRespuesta = 4, IdPregunta = 6, IdValoracion = 0, Descripcion = "Take omite los primeros n elementos de una colección y coge el resto, mientras que Skip coge los elementos especificados de una colección", Correcta = false },
-                        new Respuestas { IdRespuesta = 5, IdPregunta = 6, IdValoracion = 1, Descripcion = "Take coge los elementos especificados de una colección, mientras que Skip omite los primeros n elementos de una colección y coge el resto.", Correcta = true },
+                        new Respuestas { IdRespuesta = 4, IdPregunta = 6, IdValoracion = 0,
+                            Descripcion = "Take omite los primeros n elementos de una colección y coge el resto, mientras que Skip coge los elementos " +
+                            "especificados de una colección", Correcta = false },
+                        new Respuestas { IdRespuesta = 5, IdPregunta = 6, IdValoracion = 1, Descripcion = "Take coge los elementos especificados de una colección, " +
+                        "mientras que Skip omite los primeros n elementos de una colección y coge el resto.", Correcta = true },
                         new Respuestas { IdRespuesta = 6, IdPregunta = 6, IdValoracion = 0, Descripcion = "Ninguna es correcta", Correcta = false },
                     }
                 },

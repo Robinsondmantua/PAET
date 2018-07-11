@@ -47,6 +47,12 @@ namespace PAET
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<ICandidatosService, CandidatosService>();
             container.RegisterType<IPreguntasService, PreguntasService>();
+            container.RegisterType<IDificultadService, DificultadService>();
+            container.RegisterType<ITipoPreguntaService, TipoPreguntaService>();
+            container.RegisterType<IValoracionService, ValoracionService>();
+            container.RegisterType<ITecnologiaService, TecnologiaService>();
+            container.RegisterType<IEntrevistaService, EntrevistasService>();
+            container.RegisterType<IEntrevistaCandidatoService, EntrevistaCandidatoService>();
         }
     }
 }

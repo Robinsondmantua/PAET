@@ -54,6 +54,7 @@
     <Compile Include="Entidades Dominio\EntrevistaPreguntaTestDto.cs" />
     <Compile Include="Entidades Dominio\EntrevistasDto.cs" />
     <Compile Include="Entidades Dominio\ExperienciaDto.cs" />
+    <Compile Include="Entidades Dominio\GeneralDto.cs" />
     <Compile Include="Entidades Dominio\MultimediaDto.cs" />
     <Compile Include="Entidades Dominio\MultimediaEntrevistaCandidatoDto.cs" />
     <Compile Include="Entidades Dominio\PreguntasDto.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Entidades Dominio\TitulacionDto.cs" />
     <Compile Include="Entidades Dominio\UsuariosAdminDto.cs" />
     <Compile Include="Entidades Dominio\ValoracionDto.cs" />
+    <Compile Include="Entidades Dominio\VwEntrevistaCandidatosDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

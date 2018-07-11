@@ -21,11 +21,11 @@ namespace PAET.Services.Services
         {
             _context = context;
         }
-        public ResultadoAccion<CandidatosDto> AccesoCorrecto(String usuario, String pwd)
+        public ResultadoAccion<CandidatosDto> ComprobarAccesoCorrecto(String usuario, String pwd)
         {
-            ResultadoAccion<CandidatosDto> resulcandidato = new ResultadoAccion<CandidatosDto>();
-            SHA512 shaM = new SHA512Managed();
-            Byte[] _pwd = shaM.ComputeHash(Encoding.Unicode.GetBytes(pwd));
+            ResultadoAccion<CandidatosDto> respuestaaccesocorrecto = new ResultadoAccion<CandidatosDto>();
+            SHA512 shaMaplicado = new SHA512Managed();
+            Byte[] _pwd = shaMaplicado.ComputeHash(Encoding.Unicode.GetBytes(pwd));
             try
             {
                 CandidatosDto candidato = this.FindSingle(x => x.Apodo == usuario);
@@ -35,20 +35,20 @@ namespace PAET.Services.Services
                     {
                         if (!candidato.Activo)
                         {
-                            resulcandidato = ResultadoAccion<CandidatosDto>.ResultadoError(ResultadoAccion.CodigoResultado.ERR, "No se ha podido verificar la identidad del candidato");
+                            respuestaaccesocorrecto = ResultadoAccion<CandidatosDto>.ResultadoError(ResultadoAccion.CodigoResultado.ERR, "No se ha podido verificar la identidad del candidato");
                             FicheroLog.Err("El candidato {0} no está activo.", usuario);
                         }
-                        resulcandidato.Entidad = candidato;
+                        respuestaaccesocorrecto.Entidad = candidato;
                     }
                 }
-                else resulcandidato = ResultadoAccion<CandidatosDto>.ResultadoError(ResultadoAccion.CodigoResultado.ERR, "No se ha podido verificar la identidad del candidato");
+                else respuestaaccesocorrecto = ResultadoAccion<CandidatosDto>.ResultadoError(ResultadoAccion.CodigoResultado.ERR, "No se ha podido verificar la identidad del candidato");
             }
             catch (Exception ex)
             {
-                resulcandidato = ResultadoAccion<CandidatosDto>.ResultadoError(ResultadoAccion.CodigoResultado.ERR, "No se ha podido verificar la identidad del candidato");
+                respuestaaccesocorrecto = ResultadoAccion<CandidatosDto>.ResultadoError(ResultadoAccion.CodigoResultado.ERR, "No se ha podido verificar la identidad del candidato");
                 FicheroLog.Err("Acceso incorrecto del candidato {0}", usuario);
             }
-            return resulcandidato;
+            return respuestaaccesocorrecto;
         }
     }
 }

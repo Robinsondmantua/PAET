@@ -35,16 +35,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="LinqKit, Version=1.1.15.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
-      <HintPath>..\packages\LinqKit.1.1.15\lib\net45\LinqKit.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="LinqKit, Version=1.1.9.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.1.9.0\lib\net45\LinqKit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -59,14 +56,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ICandidatosService.cs" />
+    <Compile Include="Interfaces\IDificultadService.cs" />
+    <Compile Include="Interfaces\IEntrevistaCandidatoService.cs" />
+    <Compile Include="Interfaces\IEntrevistaService.cs" />
     <Compile Include="Interfaces\IPreguntasService.cs" />
+    <Compile Include="Interfaces\ITecnologiaService.cs" />
+    <Compile Include="Interfaces\ITipoPreguntaService.cs" />
+    <Compile Include="Interfaces\IValoracionService.cs" />
     <Compile Include="Profiles\PAETProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CandidatosService.cs" />
+    <Compile Include="Services\DificultadService.cs" />
+    <Compile Include="Services\EntrevistaCandidatoService.cs" />
+    <Compile Include="Services\EntrevistasService.cs" />
     <Compile Include="Services\PreguntasService.cs" />
+    <Compile Include="Services\TecnologiaService.cs" />
+    <Compile Include="Services\TipoPreguntaService.cs" />
+    <Compile Include="Services\ValoracionService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

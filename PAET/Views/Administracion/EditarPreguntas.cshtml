@@ -1,0 +1,94 @@
+﻿@model PAET.Models.PreguntasViewModel
+
+@{
+    ViewBag.Title = "Editar Pregunta";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bs-docs-section">
+                <h2>Editar Preguntas</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4>Pregunta 1</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IdPregunta, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.IdPregunta, new { @class = "form-control" , disabled="disabled"})
+                                @Html.ValidationMessageFor(model => model.IdPregunta, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IdTecnologia, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.IdTecnologia, new SelectList(Model.Tecnologias.ToList(), "Identificador", "Descripcion"), "-- Seleccione Tecnología --"
+                               ,new { @class = "form-control col-xs-2" })
+                                @Html.ValidationMessageFor(model => model.IdTecnologia, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IdDificultad, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.IdDificultad, new SelectList(Model.Dificultad.ToList(), "Identificador", "Descripcion"), "-- Seleccione Nivel de Dificultad --"
+                               , new { @class = "form-control col-xs-2" })
+                                @Html.ValidationMessageFor(model => model.IdDificultad, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IdValoracion, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.IdValoracion, new SelectList(Model.Valoracion.ToList(), "Identificador", "Descripcion"), "-- Seleccione Valoración --"
+                               , new { @class = "form-control col-xs-2" })
+                                @Html.ValidationMessageFor(model => model.IdValoracion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IdTipoPregunta, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.IdTipoPregunta, new SelectList(Model.TipoPregunta.ToList(), "Identificador", "Descripcion"), "-- Seleccione Tipo Pregunta --"
+                               , new { @class = "form-control col-xs-2" })
+                                @Html.ValidationMessageFor(model => model.IdTipoPregunta, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Guardar" class="btn btn-primary btn-md pull-right" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div>
+                    @Html.ActionLink("Volver", "VolverPreguntas", new { }, new { @class = "btn btn-primary btn-md " })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

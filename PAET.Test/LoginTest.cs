@@ -32,7 +32,9 @@ namespace PAET.Test
         {
             SHA512 shaM = new SHA512Managed();
             Byte[] _password = shaM.ComputeHash(Encoding.GetEncoding(1252).GetBytes("prueba$23"));
-            IQueryable<Candidatos> _candidato = new List<Candidatos> { new Candidatos { IdCandidato = 1, IdCategoria = 1, IdTitulacion = 1, IdExperiencia = 1, Nombre = "Julio", Apellido1 = "Gómez", Apellido2 = "Huerta", NIFNIE = "33527105M", Apodo = "GomezJ", Email = "jgasparh@gmail.com", Telefono = "607698429", Pwd = _password, Activo = true } }.AsQueryable();
+            IQueryable<Candidatos> _candidato = new List<Candidatos> { new Candidatos { IdCandidato = 1, IdCategoria = 1, IdTitulacion = 1, IdExperiencia = 1,
+                Nombre = "Julio", Apellido1 = "Gómez", Apellido2 = "Huerta", NIFNIE = "00000001R", Apodo = "GomezJ",
+                Email = "jgasparh@gmail.com", Telefono = "666666666", Pwd = _password, Activo = true } }.AsQueryable();
 
             var mockSet = new Mock<DbSet<Candidatos>>();
             mockSet.As<IQueryable<Candidatos>>().Setup(m => m.Provider).Returns(_candidato.Provider);
@@ -46,7 +48,7 @@ namespace PAET.Test
 
             var service = new CandidatosService(mockContext.Object);
 
-            ResultadoAccion<CandidatosDto> resultado = service.AccesoCorrecto("GomezJ", "prueba$23");
+            ResultadoAccion<CandidatosDto> resultado = service.ComprobarAccesoCorrecto("GomezJ", "prueba$23");
 
             Assert.AreEqual(ResultadoAccion.CodigoResultado.OK, resultado.ResultCode);
         }

@@ -4,6 +4,7 @@ using AutoMapper;
 using Unity.AspNet.Mvc;
 using PAET.ServiciosBasicos.Mapping;
 using PAET.Services.Profiles;
+using PAET.Profiles;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(PAET.UnityMvcActivator), nameof(PAET.UnityMvcActivator.Start))]
 [assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(PAET.UnityMvcActivator), nameof(PAET.UnityMvcActivator.Shutdown))]
@@ -23,6 +24,7 @@ namespace PAET
             Mapper.Initialize(cfg =>
             {
                 cfg.ConfigureDefaultDtoMapping();  // Mapeo EntityDTO -> Entity || Entity -> EntityDTO por defecto.
+                cfg.AddProfile<PAETProfileViewModel>();
                 cfg.AddProfile<PAETProfile>();
             });
 

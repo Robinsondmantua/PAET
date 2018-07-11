@@ -1,0 +1,101 @@
+﻿@model IEnumerable<PAET.DominioBase.Entidades_Dominio.PreguntasDto>
+
+@{
+    ViewBag.Title = "Configuración Preguntas";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var grid = new WebGrid(source: Model, canPage: true, rowsPerPage: 7);
+    //pager
+    grid.Pager(WebGridPagerModes.All);
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bs-docs-section">
+                <h2>Configurar Preguntas</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            @Html.Label("Tecnología :", htmlAttributes: new { @class = "control-label pull-left" })
+                            <select id="lsttecnología" name="lsttecnologia" class="form-control">
+                                <option value="0" selected></option>
+                                <option value="1">C#</option>
+                                <option value="2">VB.NET</option>
+                                <option value="3">LINQ</option>
+                                <option value="4">SQL</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.Label("Dificultad :", htmlAttributes: new { @class = "control-label pull-left" })
+                            <select id="lstdificultad" name="lstdificultad" class="form-control">
+                                <option value="0" selected></option>
+                                <option value="1">C#</option>
+                                <option value="2">VB.NET</option>
+                                <option value="3">LINQ</option>
+                                <option value="4">SQL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            @Html.Label("Valoración :", htmlAttributes: new { @class = "control-label pull-left" })
+                            <select id="lstvaloracion" name="lstvaloracion" class="form-control">
+                                <option value="0" selected></option>
+                                <option value="1">C#</option>
+                                <option value="2">VB.NET</option>
+                                <option value="3">LINQ</option>
+                                <option value="4">SQL</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.Label("Tipo Pregunta:", htmlAttributes: new { @class = "control-label pull-left" })
+                            <select id="lsttipopregunta" name="lsttipopregunta" class="form-control">
+                                <option value="0" selected></option>
+                                <option value="1">C#</option>
+                                <option value="2">VB.NET</option>
+                                <option value="3">LINQ</option>
+                                <option value="4">SQL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-md pull-right">Filtrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="webgrid">
+                @grid.GetHtml(
+             tableStyle: "table table-responsive backcolor",
+             headerStyle: "wedgrid-header",
+             footerStyle: "webgrid-footer",
+             rowStyle: "webgrid-row-style",
+             emptyRowCellValue: "No se han encontrado registros",
+             columns: grid.Columns(
+             grid.Column(columnName: "IdPregunta", header: "Identificador", format: null, style: "webgrid-column-right"),
+             grid.Column(columnName: "Descripcion", header: "Texto"),
+             grid.Column(header: " ", format: (item) =>
+                 new HtmlString(
+                 Html.ActionLink(" ", "EditarPreguntas", new { idPregunta = item.IdPregunta }, new { @class = "glyphicon glyphicon-search" }).ToString())),
+             grid.Column(header: " ", format: (item) =>
+                 new HtmlString(
+                 Html.ActionLink(" ", "BorrarPreguntas", new { id = item.IdPregunta }, new { @class = "glyphicon glyphicon-trash", href = "#" }).ToString()))
+                    ))
+            </div>
+            <p>
+                @Html.ActionLink("Nueva Pregunta", "Create", new { }, new { @class = "btn btn-primary btn-md pull-right" })
+            </p>
+        </div>
+    </div>
+</div>
+@section Scripts
+                                    {
+<script src="~/Scripts/Administracion/AdminPreguntas.js"></script>
+}

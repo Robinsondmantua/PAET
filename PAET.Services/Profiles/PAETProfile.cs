@@ -15,6 +15,11 @@ namespace PAET.Services.Profiles
         {
             CreateMap<PreguntasDto, Preguntas>()
             .ForMember(dest => dest.Respuestas, opt => opt.MapFrom(src => src.Respuestas)).ReverseMap();
+            CreateMap<CandidatosDto, Candidatos>().ReverseMap();
+            CreateMap<EntrevistasDto, Entrevistas>()
+                .ForMember(dest => dest.EntrevistaCandidato, opt => opt.MapFrom(src => src.EntrevistaCandidato)).ReverseMap();
+            CreateMap<EntrevistaCandidatoDto, EntrevistaCandidato>().ReverseMap();
+            CreateMap<VwEntrevistaCandidatosDto, VwEntrevistaCandidatos>().ReverseMap();
         }
     }
 }

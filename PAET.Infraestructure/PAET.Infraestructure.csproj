@@ -130,6 +130,9 @@
     <Compile Include="Valoracion.cs">
       <DependentUpon>PAET.tt</DependentUpon>
     </Compile>
+    <Compile Include="VwEntrevistaCandidatos.cs">
+      <DependentUpon>PAET.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="PAET.edmx">

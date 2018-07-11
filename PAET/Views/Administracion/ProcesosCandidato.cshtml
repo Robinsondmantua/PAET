@@ -1,0 +1,84 @@
+﻿@model PAET.Models.ValoracionCandidatosViewModel
+
+@{
+    ViewBag.Title = "Valoración Candidatos";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var grid = new WebGrid(source: Model.Entrevistas, canPage: true, rowsPerPage: 7);
+    //pager
+    grid.Pager(WebGridPagerModes.All);
+    var grid1 = new WebGrid(source: Model.EntrevistaCandidato, canPage: true, rowsPerPage: 7);
+    grid1.Pager(WebGridPagerModes.All);
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bs-docs-section">
+                <h2>Valorar candidatos por proceso de selección</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            @Html.Label("Descripción del proceso:", htmlAttributes: new { @class = "control-label pull-left" })
+                            <input type="text" id="txtdescripcion" name="txtdescripcion" class="form-control" />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-md pull-right">Filtrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="bs-docs-section">
+                <h4>Procesos de selección filtrados</h4>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="bs-docs-section">
+                <h4>Candidatos Participantes</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div id="webgrid">
+                @grid.GetHtml(
+  tableStyle: "table table-responsive backcolor",
+  headerStyle: "wedgrid-header",
+  footerStyle: "webgrid-footer",
+  rowStyle: "webgrid-row-style",
+  emptyRowCellValue: "No se han encontrado registros",
+  columns: grid.Columns(
+  grid.Column(columnName: "IdEntrevista", header: "Identificador", format: null, style: "webgrid-column-right"),
+  grid.Column(columnName: "Descripcion", header: "Texto"),
+  grid.Column(header: "Ver Detalle ", format: (item) =>
+      new HtmlString(
+      Html.ActionLink(" ", "VerDetalleProceso", new { idEntrevista = item.IdEntrevista }, new { @class = "glyphicon glyphicon-search" }).ToString()))))
+            </div>
+        </div>
+        <div class="col-md-4">
+            @grid1.GetHtml(tableStyle: "table table-responsive backcolor",
+  headerStyle: "wedgrid-header",
+  footerStyle: "webgrid-footer",
+  rowStyle: "webgrid-row-style",
+  emptyRowCellValue: "No se han encontrado registros",
+  columns: grid.Columns(
+  grid.Column(columnName: "NombreCompleto", header: "Candidato", format: null, style: "webgrid-column-right"),
+  grid.Column(columnName: "ValoracionFinal", header: "Valoración Final",format:  @<text>@Html.BootstrapRating().ReadOnly.Value((double)item.ValoracionFinal)</text>
+              ),
+                       grid.Column(header: "Ver Detalle ", format: (item) =>
+                           new HtmlString(
+                           Html.ActionLink(" ", "VerDetalleCandidato", new { idEntrevista = item.IdEntrevista }, new { @class = "glyphicon glyphicon-search" }).ToString()))))
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/Scripts/Administracion/AdminPreguntas.js"></script>
+}
