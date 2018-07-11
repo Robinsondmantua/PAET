@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Valoración Candidatos - Detalle";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bs-docs-section">
+                <h2>Valoración candidatos por proceso de selección - Detalle</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        @Html.Label("Descripción del proceso: Contratación de un programador senior", htmlAttributes: new { @class = "control-label pull-left" }) 
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        @Html.Label("Candidato: Julio Gómez Huerta", htmlAttributes: new { @class = "control-label pull-left" }) 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @using (Ajax.BeginForm("Index", "Confirmacion", new AjaxOptions { HttpMethod = "Post" }))
+            {
+                <div id="rootwizard">
+                    <ul id="config_entrevista">
+                        <li><a href="#tab1" data-toggle="tab">Valorar prueba evaluación técnica</a></li>
+                        <li><a href="#tab2" data-toggle="tab">Valorar intervención chat</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Valorar entrevista multimedia</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane" id="tab1">
+                            <div class="control-group">
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Pregunta</th>
+                                                    <th>Respuesta</th>
+                                                    <th>Valoración</th>
+                                                    <th>Ver</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>¿Cómo se declara una variable en C#?</td>
+                                                    <td>Declaraciones de tipos</td>
+                                                    <td>@Html.BootstrapRating().ReadOnly.Value(10)</td>
+                                                    <td><a href=''><span class='glyphicon glyphicon-search'></span></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Explica en breves palabras las diferencias entre una clase abstracta y una interfaz</td>
+                                                    <td></td>
+                                                    <td>@Html.BootstrapRating().ReadOnly.Value(10)</td>
+                                                    <td><a href=''><span class='glyphicon glyphicon-search'></span></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>¿Cómo ordenarías descendentemente una consulta en Linq por varios campos de una consulta?</td>
+                                                    <td>Ambas son correctas</td>
+                                                    <td>@Html.BootstrapRating().ReadOnly.Value(10)</td>
+                                                    <td><a href=''><span class='glyphicon glyphicon-search'></span></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            <div class="control-group">
+                                <div class="col-md-12 form-group">
+ 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab3">
+                            <div class="control-group">
+                                <div class="control-group">
+                                    <div class="col-md-12 form-group">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts
+                                    {
+    <script src="@Url.Content("~/Scripts/ConfEntrevista.js")"></script>
+}
+
+</div>
+
+
+

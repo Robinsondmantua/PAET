@@ -60,6 +60,10 @@ namespace PAET.Controllers.Administracion
             valoracion.EntrevistaCandidato = _entrevistaCandidatoService.ObtenerCandidatosEntrevistaNombre(1);
              return View(valoracion); 
         }
+        public ActionResult ProcesosCandidatoDetalle()
+        {
+            return View();
+        }
         public ActionResult VerDetalleProceso(int idEntrevista)
         {
               return View();

@@ -352,6 +352,7 @@
     <Content Include="Views\Administracion\MenuTablasMaestras.cshtml" />
     <Content Include="Views\Administracion\EditarPreguntas.cshtml" />
     <Content Include="Views\Administracion\ProcesosCandidato.cshtml" />
+    <Content Include="Views\Administracion\ProcesosCandidatoDetalle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
