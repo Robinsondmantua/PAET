@@ -22,5 +22,10 @@ namespace PAET.DominioBase.Entidades_Dominio
         [DisplayName("Descripción")]
         public string Descripcion { get; set; }
         public IEnumerable<RespuestasDto> Respuestas { get; set; }
+        public TecnologiaDto Tecnologia { get; set; }
+        public DificultadDto Dificultad { get; set; }
+        public IEnumerable<EntrevistaPreguntaTestDto> EntrevistaPreguntaTest { get; set; }
+        public TipoPreguntaDto TipoPregunta { get; set; }
+        public ValoracionDto Valoracion { get; set; }
     }
 }

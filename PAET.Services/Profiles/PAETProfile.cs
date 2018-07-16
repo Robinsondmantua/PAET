@@ -13,6 +13,7 @@ namespace PAET.Services.Profiles
     {
         protected override void Configure()
         {
+            CreateMap<Tecnologia, TecnologiaDto>().ReverseMap();
             CreateMap<PreguntasDto, Preguntas>()
             .ForMember(dest => dest.Respuestas, opt => opt.MapFrom(src => src.Respuestas)).ReverseMap();
             CreateMap<CandidatosDto, Candidatos>().ReverseMap();

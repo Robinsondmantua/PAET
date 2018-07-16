@@ -5,27 +5,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="64212cd448d842f2a3de3355e27e33c8" Name="Diagram1" ZoomLevel="64">
-        <EntityTypeShape EntityType="TestModel.Candidatos" Width="1.5" PointX="3.375" PointY="7.875" />
-        <EntityTypeShape EntityType="TestModel.CategoriaProfesional" Width="1.5" PointX="13.125" PointY="9.25" />
+        <EntityTypeShape EntityType="TestModel.Candidatos" Width="1.5" PointX="6.125" PointY="2.5" />
+        <EntityTypeShape EntityType="TestModel.CategoriaProfesional" Width="1.5" PointX="11.125" PointY="4.75" />
         <EntityTypeShape EntityType="TestModel.Chat" Width="1.5" PointX="13.375" PointY="2.625" />
-        <EntityTypeShape EntityType="TestModel.ChatEntrevistaCandidato" Width="1.5" PointX="5.75" PointY="4.125" />
+        <EntityTypeShape EntityType="TestModel.ChatEntrevistaCandidato" Width="2.25" PointX="3.25" PointY="4" />
         <EntityTypeShape EntityType="TestModel.Dificultad" Width="1.5" PointX="17.75" PointY="2" />
-        <EntityTypeShape EntityType="TestModel.EntrevistaCandidato" Width="1.5" PointX="8.375" PointY="4.75" />
-        <EntityTypeShape EntityType="TestModel.EntrevistaPregunta" Width="1.5" PointX="4.25" PointY="0.625" />
-        <EntityTypeShape EntityType="TestModel.EntrevistaPreguntaTest" Width="1.5" PointX="10.25" PointY="4.875" />
-        <EntityTypeShape EntityType="TestModel.Entrevistas" Width="1.5" PointX="0.875" PointY="7.75" />
-        <EntityTypeShape EntityType="TestModel.Experiencia" Width="1.5" PointX="9.625" PointY="8.25" />
-        <EntityTypeShape EntityType="TestModel.Multimedia" Width="1.5" PointX="7.25" PointY="0.625" />
-        <EntityTypeShape EntityType="TestModel.MultimediaEntrevistaCandidato" Width="1.5" PointX="3.125" PointY="4.125" />
-        <EntityTypeShape EntityType="TestModel.Preguntas" Width="1.5" PointX="13.125" PointY="5" />
-        <EntityTypeShape EntityType="TestModel.Respuestas" Width="1.5" PointX="16.375" PointY="4.875" />
-        <EntityTypeShape EntityType="TestModel.Rol" Width="1.5" PointX="10.75" PointY="0.625" />
-        <EntityTypeShape EntityType="TestModel.Tecnologia" Width="1.5" PointX="1.25" PointY="0.5" />
-        <EntityTypeShape EntityType="TestModel.TipoDocumento" Width="1.5" PointX="10.5" PointY="2.75" />
-        <EntityTypeShape EntityType="TestModel.TipoPregunta" Width="1.5" PointX="0.875" PointY="2.625" />
-        <EntityTypeShape EntityType="TestModel.Titulacion" Width="1.5" PointX="5.75" PointY="7.875" />
+        <EntityTypeShape EntityType="TestModel.EntrevistaCandidato" Width="2.25" PointX="8.375" PointY="4.75" />
+        <EntityTypeShape EntityType="TestModel.EntrevistaPregunta" Width="2" PointX="8.5" PointY="0.5" />
+        <EntityTypeShape EntityType="TestModel.EntrevistaPreguntaTest" Width="2" PointX="13.25" PointY="4.875" />
+        <EntityTypeShape EntityType="TestModel.Entrevistas" Width="1.5" PointX="0.75" PointY="5.875" />
+        <EntityTypeShape EntityType="TestModel.Experiencia" Width="1.5" PointX="6.25" PointY="7.625" />
+        <EntityTypeShape EntityType="TestModel.Multimedia" Width="1.5" PointX="11.125" PointY="0.625" />
+        <EntityTypeShape EntityType="TestModel.MultimediaEntrevistaCandidato" Width="2.375" PointX="3.25" PointY="0.5" />
+        <EntityTypeShape EntityType="TestModel.Preguntas" Width="1.5" PointX="15.75" PointY="4.125" />
+        <EntityTypeShape EntityType="TestModel.Respuestas" Width="1.5" PointX="18" PointY="4.75" />
+        <EntityTypeShape EntityType="TestModel.Rol" Width="1.5" PointX="13.25" PointY="0.625" />
+        <EntityTypeShape EntityType="TestModel.Tecnologia" Width="1.5" PointX="6.125" PointY="0.5" />
+        <EntityTypeShape EntityType="TestModel.TipoDocumento" Width="1.5" PointX="11.25" PointY="2.625" />
+        <EntityTypeShape EntityType="TestModel.TipoPregunta" Width="1.875" PointX="0.875" PointY="0.5" />
+        <EntityTypeShape EntityType="TestModel.Titulacion" Width="1.5" PointX="3.375" PointY="7.625" />
         <EntityTypeShape EntityType="TestModel.UsuariosAdmin" Width="1.5" PointX="15.75" PointY="0.5" />
-        <EntityTypeShape EntityType="TestModel.Valoracion" Width="1.5" PointX="0.875" PointY="4.625" />
+        <EntityTypeShape EntityType="TestModel.Valoracion" Width="1.5" PointX="0.875" PointY="2.375" />
         <AssociationConnector Association="TestModel.FK_Candidatos_CategoriaProfesional" />
         <AssociationConnector Association="TestModel.FK_Candidatos_Experiencia" />
         <AssociationConnector Association="TestModel.FK_Candidatos_Titulacion" />
@@ -49,7 +49,7 @@
         <AssociationConnector Association="TestModel.FK_UsuariosAdmin_Rol" />
         <AssociationConnector Association="TestModel.FK_ChatEntrevistaCandidato_Chat" />
         <AssociationConnector Association="TestModel.FK_MultimediaEntrevistaCandidato_Multimedia" />
-        <EntityTypeShape EntityType="TestModel.VwEntrevistaCandidatos" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="TestModel.VwEntrevistaCandidatos" Width="2.125" PointX="11" PointY="7.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
