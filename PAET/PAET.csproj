@@ -307,6 +307,7 @@
     <Compile Include="Controllers\Administracion\AdministracionController.cs" />
     <Compile Include="Controllers\Administracion\ConfEntrevistaController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MultiController.cs" />
@@ -316,6 +317,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ErrorViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PreguntasViewModel.cs" />
     <Compile Include="Models\ValoracionCandidatosViewModel.cs" />
@@ -353,6 +355,7 @@
     <Content Include="Views\Administracion\EditarPreguntas.cshtml" />
     <Content Include="Views\Administracion\ProcesosCandidato.cshtml" />
     <Content Include="Views\Administracion\ProcesosCandidatoDetalle.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -133,6 +133,9 @@
     <Compile Include="VwEntrevistaCandidatos.cs">
       <DependentUpon>PAET.tt</DependentUpon>
     </Compile>
+    <Compile Include="VwEntrevistasActivas.cs">
+      <DependentUpon>PAET.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="PAET.edmx">

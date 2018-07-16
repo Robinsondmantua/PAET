@@ -220,6 +220,22 @@ advertencia 6002: La tabla o vista 'PAET.dbo.VwEntrevistaCandidatos' no tiene de
           <Property Name="NombreCompleto" Type="varchar" MaxLength="302" />
           <Property Name="ValoracionFinal" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PAET.dbo.VwEntrevistasActivas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VwEntrevistasActivas">
+          <Key>
+            <PropertyRef Name="IdEntrevistaCandidato" />
+            <PropertyRef Name="EntrevistaTest" />
+            <PropertyRef Name="Chat" />
+            <PropertyRef Name="Multimedia" />
+          </Key>
+          <Property Name="IdCandidato" Type="int" />
+          <Property Name="IdEntrevista" Type="int" />
+          <Property Name="IdEntrevistaCandidato" Type="int" Nullable="false" />
+          <Property Name="EntrevistaTest" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Chat" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Multimedia" Type="varchar" MaxLength="8" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Candidatos_CategoriaProfesional">
           <End Role="CategoriaProfesional" Type="Self.CategoriaProfesional" Multiplicity="0..1" />
           <End Role="Candidatos" Type="Self.Candidatos" Multiplicity="*" />
@@ -528,6 +544,16 @@ advertencia 6002: La tabla o vista 'PAET.dbo.VwEntrevistaCandidatos' no tiene de
     [VwEntrevistaCandidatos].[ValoracionFinal] AS [ValoracionFinal]
     FROM [dbo].[VwEntrevistaCandidatos] AS [VwEntrevistaCandidatos]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VwEntrevistasActivas" EntityType="Self.VwEntrevistasActivas" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwEntrevistasActivas].[IdCandidato] AS [IdCandidato], 
+    [VwEntrevistasActivas].[IdEntrevista] AS [IdEntrevista], 
+    [VwEntrevistasActivas].[IdEntrevistaCandidato] AS [IdEntrevistaCandidato], 
+    [VwEntrevistasActivas].[EntrevistaTest] AS [EntrevistaTest], 
+    [VwEntrevistasActivas].[Chat] AS [Chat], 
+    [VwEntrevistasActivas].[Multimedia] AS [Multimedia]
+    FROM [dbo].[VwEntrevistasActivas] AS [VwEntrevistasActivas]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Candidatos_CategoriaProfesional" Association="Self.FK_Candidatos_CategoriaProfesional">
             <End Role="CategoriaProfesional" EntitySet="CategoriaProfesional" />
             <End Role="Candidatos" EntitySet="Candidatos" />
@@ -740,6 +766,7 @@ advertencia 6002: La tabla o vista 'PAET.dbo.VwEntrevistaCandidatos' no tiene de
             <End Role="MultimediaEntrevistaCandidato" EntitySet="MultimediaEntrevistaCandidato" />
           </AssociationSet>
           <EntitySet Name="VwEntrevistaCandidatos" EntityType="TestModel.VwEntrevistaCandidatos" />
+          <EntitySet Name="VwEntrevistasActivas" EntityType="TestModel.VwEntrevistasActivas" />
         </EntityContainer>
         <EntityType Name="Candidatos">
           <Key>
@@ -1266,6 +1293,20 @@ advertencia 6002: La tabla o vista 'PAET.dbo.VwEntrevistaCandidatos' no tiene de
           <Property Name="NombreCompleto" Type="String" MaxLength="302" FixedLength="false" Unicode="false" />
           <Property Name="ValoracionFinal" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
+        <EntityType Name="VwEntrevistasActivas">
+          <Key>
+            <PropertyRef Name="IdEntrevistaCandidato" />
+            <PropertyRef Name="EntrevistaTest" />
+            <PropertyRef Name="Chat" />
+            <PropertyRef Name="Multimedia" />
+          </Key>
+          <Property Name="IdCandidato" Type="Int32" />
+          <Property Name="IdEntrevista" Type="Int32" />
+          <Property Name="IdEntrevistaCandidato" Type="Int32" Nullable="false" />
+          <Property Name="EntrevistaTest" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Chat" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Multimedia" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1492,6 +1533,18 @@ advertencia 6002: La tabla o vista 'PAET.dbo.VwEntrevistaCandidatos' no tiene de
                 <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
                 <ScalarProperty Name="IdEntrevista" ColumnName="IdEntrevista" />
                 <ScalarProperty Name="IdEntrevistaCandidato" ColumnName="IdEntrevistaCandidato" />
+                <ScalarProperty Name="IdCandidato" ColumnName="IdCandidato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwEntrevistasActivas">
+            <EntityTypeMapping TypeName="TestModel.VwEntrevistasActivas">
+              <MappingFragment StoreEntitySet="VwEntrevistasActivas">
+                <ScalarProperty Name="Multimedia" ColumnName="Multimedia" />
+                <ScalarProperty Name="Chat" ColumnName="Chat" />
+                <ScalarProperty Name="EntrevistaTest" ColumnName="EntrevistaTest" />
+                <ScalarProperty Name="IdEntrevistaCandidato" ColumnName="IdEntrevistaCandidato" />
+                <ScalarProperty Name="IdEntrevista" ColumnName="IdEntrevista" />
                 <ScalarProperty Name="IdCandidato" ColumnName="IdCandidato" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -31,10 +31,14 @@ namespace PAET.Controllers
         [NoCache]
         public ActionResult Sigin()
         {
-            if (User.Identity.IsAuthenticated) FormsAuthentication.SignOut();
-            LoginViewModel login = new LoginViewModel();
-            login.AccesoCorrecto = true;
-            return View(login);
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("SignOut");
+            else
+            {
+                LoginViewModel login = new LoginViewModel();
+                login.AccesoCorrecto = true;
+                return View(login);
+            }
         }
         [AllowAnonymous]
         public ActionResult AccesoInvalido(LoginViewModel acceso)
@@ -56,7 +60,7 @@ namespace PAET.Controllers
                 {
                     string NombreCompleto = resultado.Entidad.Nombre + " " + resultado.Entidad.Apellido1 + " " + resultado.Entidad.Apellido2;
                     FormsAuthentication.SetAuthCookie(NombreCompleto, false);
-                    return RedirectToAction("Menu", "Menu");
+                    return RedirectToAction("Menu", "Menu", new { IdCandidato = resultado.Entidad.IdCandidato });
                 }
                 else
                 {

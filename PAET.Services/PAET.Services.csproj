@@ -63,8 +63,10 @@
     <Compile Include="Interfaces\ITecnologiaService.cs" />
     <Compile Include="Interfaces\ITipoPreguntaService.cs" />
     <Compile Include="Interfaces\IValoracionService.cs" />
+    <Compile Include="Interfaces\IVwEntrevistasActivasService.cs" />
     <Compile Include="Profiles\PAETProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\VwEntrevistasActivasService.cs" />
     <Compile Include="Services\CandidatosService.cs" />
     <Compile Include="Services\DificultadService.cs" />
     <Compile Include="Services\EntrevistaCandidatoService.cs" />

@@ -67,6 +67,7 @@
     <Compile Include="Entidades Dominio\UsuariosAdminDto.cs" />
     <Compile Include="Entidades Dominio\ValoracionDto.cs" />
     <Compile Include="Entidades Dominio\VwEntrevistaCandidatosDto.cs" />
+    <Compile Include="Entidades Dominio\VwEntrevistasActivasDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

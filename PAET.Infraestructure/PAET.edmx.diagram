@@ -50,6 +50,7 @@
         <AssociationConnector Association="TestModel.FK_ChatEntrevistaCandidato_Chat" />
         <AssociationConnector Association="TestModel.FK_MultimediaEntrevistaCandidato_Multimedia" />
         <EntityTypeShape EntityType="TestModel.VwEntrevistaCandidatos" Width="2.125" PointX="11" PointY="7.25" />
+        <EntityTypeShape EntityType="TestModel.VwEntrevistasActivas" Width="1.5" PointX="0.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

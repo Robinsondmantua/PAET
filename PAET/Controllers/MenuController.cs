@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PAET.Services.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,15 +10,22 @@ namespace PAET.Controllers
     [Authorize]
     public class MenuController : Controller
     {
+        IVwEntrevistasActivasService _vwEntrevistasActivasService;
+        public MenuController(IVwEntrevistasActivasService vwEntrevistasActivasService)
+        {
+            _vwEntrevistasActivasService = vwEntrevistasActivasService;
+        }
         // GET: Menu
         public ActionResult Index()
         {
             return View();
         }
         [HttpGet]
-        public ActionResult Menu()
+        [Authorize]
+        public ActionResult Menu(int IdCandidato)
         {
-            return View();
+            var entrevistaactiva = _vwEntrevistasActivasService.FindSingle(x => x.IdCandidato == IdCandidato);
+            return View(entrevistaactiva);
         }
     }
 }

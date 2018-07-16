@@ -53,6 +53,7 @@ namespace PAET
             container.RegisterType<ITecnologiaService, TecnologiaService>();
             container.RegisterType<IEntrevistaService, EntrevistasService>();
             container.RegisterType<IEntrevistaCandidatoService, EntrevistaCandidatoService>();
+            container.RegisterType<IVwEntrevistasActivasService, VwEntrevistasActivasService>();
         }
     }
 }
